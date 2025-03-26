@@ -1,0 +1,9 @@
+:root {
+    color-scheme: light;
+}
+
+@media (prefers-reduced-motion) {
+  @view-transition {
+    navigation: none;
+  }
+}

@@ -1,0 +1,42 @@
+---
+interface Props {
+  title: string;
+  lang: string;
+}
+
+let { title, lang } = Astro.props;
+
+import config from "@config";
+import "@styles/main.css";
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <title>{title}</title>
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=1"
+    />
+    <meta name="darkreader-lock" />
+    <meta name="generator" content={Astro.generator} />
+    <link
+      href="/atom.xml"
+      type="application/atom+xml"
+      rel="alternate"
+      title=`${config.name} RSS`
+    />
+    <link rel="icon" type="image/ico" href="/favicon.ico" />
+    <!-- TODO: sitemap -->
+    <!-- <link rel="sitemap" href="/sitemap.xml" /> -->
+    <style>
+      @view-transition {
+        navigation: auto; /* remove this to raise a vscode parse error */
+      }
+    </style>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
