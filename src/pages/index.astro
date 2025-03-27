@@ -1,7 +1,22 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
+
+import config from "@config";
+import { getBlogPosts } from "@/lib/posts";
+
+let posts = await getBlogPosts();
 ---
 
 <Layout>
-	<div>hello world</div>
+  <h1>{config.name}</h1>
+  <h2>{config.description}</h2>
+  <div>hello world</div>
+
+  <ul>
+    {posts.map((post) => (
+      <li>
+        <a href={`/archives/${post.id}`}>{post.data.title}</a>
+      </li>
+    ))}
+  </ul>
 </Layout>

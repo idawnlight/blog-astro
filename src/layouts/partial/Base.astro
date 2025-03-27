@@ -7,7 +7,7 @@ interface Props {
 let { title, lang } = Astro.props;
 
 import config from "@config";
-import "@styles/main.css";
+import "@styles/main.scss";
 ---
 
 <!doctype html>
@@ -28,13 +28,12 @@ import "@styles/main.css";
       title=`${config.name} RSS`
     />
     <link rel="icon" type="image/ico" href="/favicon.ico" />
-    <!-- TODO: sitemap -->
-    <!-- <link rel="sitemap" href="/sitemap.xml" /> -->
-    <style>
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <!-- <style>
       @view-transition {
         navigation: auto; /* remove this to raise a vscode parse error */
       }
-    </style>
+    </style> -->
   </head>
   <body>
     <slot />

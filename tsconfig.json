@@ -24,6 +24,9 @@
       "@layouts/*": [
         "src/layouts/*"
       ],
+      "@components/*": [
+        "src/components/*"
+      ],
     }
   }
 }

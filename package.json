@@ -9,8 +9,13 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/sitemap": "^3.3.0",
     "@iconify-json/fa6-solid": "^1.2.3",
     "astro": "^5.5.4",
-    "astro-icon": "^1.1.5"
+    "astro-icon": "^1.1.5",
+    "sass": "^1.86.0"
+  },
+  "devDependencies": {
+    "unocss": "66.1.0-beta.7"
   }
 }

@@ -1,8 +1,22 @@
 ---
 import Base from "@layouts/partial/Base.astro";
+import Footer from "@layouts/partial/Footer.astro";
+import config from "@config";
+import ColorScheme from "@components/ColorScheme.astro";
 
+interface Props {
+  title?: string;
+  lang?: string;
+}
+
+let { title, lang } = Astro.props;
+title = title ? `${title} | ${config.name}` : config.name;
+lang = lang || "zh-Hans";
 ---
 
-<Base title="title" lang="zh-Hans">
+<Base title={title} lang={lang}>
+  <!-- haven't figured out a way to store the state -->
+  <!-- <ColorScheme value="auto" /> -->
   <slot />
+  <Footer />
 </Base>

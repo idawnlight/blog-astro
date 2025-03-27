@@ -1,0 +1,15 @@
+:root {
+    color-scheme: light;
+    -moz-tab-size: 4;
+    tab-size: 4;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+@media (prefers-reduced-motion) {
+    @view-transition {
+        navigation: none;
+    }
+}
