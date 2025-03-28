@@ -1,5 +1,7 @@
+@use 'colors';
+
 :root {
-    color-scheme: light;
+    color-scheme: light dark;
     -moz-tab-size: 4;
     tab-size: 4;
 }
@@ -8,8 +10,24 @@ html {
     box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion) {
-    @view-transition {
-        navigation: none;
-    }
+body {
+    margin: 0;
+    background: var(--md-sys-color-background);
+    position: relative;
 }
+
+::selection {
+    background: var(--md-sys-color-primary);
+    color: var(--md-sys-color-on-primary);
+}
+
+// idk why but vanilla css variables don't work here
+// ::selection {
+//     background: colors.$md-sys-color-primary-light;
+//     color: colors.$md-sys-color-on-primary-light;
+
+//     @include colors.dark {
+//         background: colors.$md-sys-color-primary-dark;
+//         color: colors.$md-sys-color-on-primary-dark;
+//     }
+// }
