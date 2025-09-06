@@ -1,0 +1,24 @@
+---
+import type { CollectionEntry } from "astro:content";
+import FormattedDate from "@/components/FormattedDate.astro";
+
+interface Props {
+    post: CollectionEntry<"blog">;
+}
+
+const { post } = Astro.props;
+---
+
+<>
+    发布于 <span><FormattedDate date={post.data.published} /></span>{
+        post.data.modified && (
+            <>，更新于 <span><FormattedDate date={post.data.modified} /></span></>
+        )
+    }
+</>
+
+<style lang="scss">
+    span {
+        @apply underline underline-dotted;
+    }
+</style>
