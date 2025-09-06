@@ -7,10 +7,11 @@ import config from "@config";
         <div class="font-bold text-2xl">
             <a href="/" class="title">{config.name}</a>
         </div>
-        <div class="flex gap-4">
-            <a href="/">Home</a>
-            <a href="/about">About</a>
-            <a href="/posts">Posts</a>
+        <div class="flex gap-4 header-links">
+            <a href="/">归档</a>
+            <a href="/about">链接</a>
+            <a href="/posts">关于</a>
+            <a href="/atom.xml">RSS</a>
         </div>
     </nav>
 </header>
@@ -23,5 +24,9 @@ import config from "@config";
 
     .title {
         color: var(--md-sys-color-on-surface);
+    }
+
+    .header-links a {
+        @apply text-lg;
     }
 </style>

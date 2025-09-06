@@ -18,13 +18,13 @@ import "@styles/main.scss";
         <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=1" />
         <meta name="generator" content={Astro.generator} />
         <link
-            href={new URL("atom.xml", Astro.site)}
+            href="/atom.xml"
             type="application/atom+xml"
             rel="alternate"
             title=`${config.name} RSS`
         />
-        <link rel="icon" type="image/ico" href={new URL("favicon.ico", Astro.site)} />
-        <link rel="sitemap" href={new URL("sitemap-index.xml", Astro.site)} />
+        <link rel="icon" type="image/ico" href="/favicon.ico" />
+        <link rel="sitemap" href="/sitemap-index.xml" />
     </head>
     <body>
         <slot />

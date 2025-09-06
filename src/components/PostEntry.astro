@@ -1,0 +1,45 @@
+---
+import type { CollectionEntry } from "astro:content";
+import FormattedDate from "@/components/FormattedDate.astro";
+
+interface Props {
+    post: CollectionEntry<"blog">;
+}
+
+const { post } = Astro.props;
+---
+
+<section class="post-entry w-full">
+    <a href={`/posts/${post.id}`} class="text-2xl font-bold">
+        {post.data.title}
+    </a>
+
+    <div class="entry-meta my-1">
+        发布于 <span><FormattedDate date={post.data.published} /></span>{post.data.modified && (
+            <>，更新于 <span><FormattedDate date={post.data.modified} /></span></>
+        )}
+    </div>
+
+    <div>
+        {post.data.description ? post.data.description : (post.body && (post.body.slice(0, 200) + (post.body.length > 200 ? "(...)" : "")))}
+    </div>
+</section>
+
+<style lang="scss">
+    .post-entry {
+        background-color: var(--md-sys-color-surface-container-lowest);
+        border: 0.2rem solid var(--md-sys-color-surface-container-highest);
+        border-radius: 0.1875rem;
+        box-shadow: 0.125rem 0.25rem var(--md-sys-color-surface-container);
+
+        @apply p-6;
+    }
+
+    .entry-meta {
+        color: var(--md-sys-color-secondary);
+    }
+
+    .entry-meta span {
+        @apply underline underline-dotted;
+    }
+</style>

@@ -3,12 +3,13 @@ import Layout from "../layouts/Layout.astro";
 
 import config from "@config";
 import { getBlogPosts } from "@/lib/posts";
+import PostEntry from "@/components/PostEntry.astro";
 
 let posts = await getBlogPosts();
 ---
 
 <Layout>
-    <h1>{config.name}</h1>
+    <!-- <h1>{config.name}</h1>
     <h2>{config.description}</h2>
     <div>hello world</div>
 
@@ -20,5 +21,11 @@ let posts = await getBlogPosts();
                 </li>
             ))
         }
-    </ul>
+    </ul> -->
+
+    <main class="container mx-auto w-full mt-8 flex flex-col gap-6">
+        {posts.map((post) => (
+            <PostEntry post={post} />
+        ))}
+    </main>
 </Layout>
