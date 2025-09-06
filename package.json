@@ -16,6 +16,7 @@
         "sass": "^1.92.1"
     },
     "devDependencies": {
-        "unocss": "66.5.0"
+        "unocss": "66.5.0",
+        "wrangler": "^4.34.0"
     }
 }
