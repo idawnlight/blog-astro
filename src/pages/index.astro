@@ -8,15 +8,17 @@ let posts = await getBlogPosts();
 ---
 
 <Layout>
-  <h1>{config.name}</h1>
-  <h2>{config.description}</h2>
-  <div>hello world</div>
+    <h1>{config.name}</h1>
+    <h2>{config.description}</h2>
+    <div>hello world</div>
 
-  <ul>
-    {posts.map((post) => (
-      <li>
-        <a href={`/archives/${post.id}`}>{post.data.title}</a>
-      </li>
-    ))}
-  </ul>
+    <ul>
+        {
+            posts.map((post) => (
+                <li>
+                    <a href={`/archives/${post.id}`}>{post.data.title}</a>
+                </li>
+            ))
+        }
+    </ul>
 </Layout>

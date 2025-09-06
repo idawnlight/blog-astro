@@ -1,33 +1,63 @@
-@use 'colors';
+@use "colors";
 
 :root {
-    color-scheme: light dark;
+    // color-scheme: light dark;
     -moz-tab-size: 4;
     tab-size: 4;
 }
 
-html {
+* {
     box-sizing: border-box;
+}
+
+html {
+    color: colors.$md-sys-color-on-background-light;
+    @include colors.dark {
+        color: colors.$md-sys-color-on-background-dark;
+    }
 }
 
 body {
     margin: 0;
-    background: var(--md-sys-color-background);
+    background: colors.$md-sys-color-background-light;
     position: relative;
+
+    @include colors.dark {
+        background: colors.$md-sys-color-background-dark;
+    }
+}
+
+a {
+    color: colors.$md-sys-color-primary-light;
+    text-decoration: none;
+
+    @include colors.dark {
+        color: colors.$md-sys-color-primary-dark;
+    }
+
+    &:hover {
+        box-shadow: inset 0 -0.2em 0 0 currentColor;
+        transition-duration: 0.2s;
+    }
+
+    &:active {
+        transition-duration: 0s;
+        outline: 0.2em dashed currentColor;
+        outline-offset: 0.05em;
+        box-shadow: none !important;
+    }
 }
 
 ::selection {
-    background: var(--md-sys-color-primary);
-    color: var(--md-sys-color-on-primary);
+    background: colors.$md-sys-color-primary-light;
+    color: colors.$md-sys-color-on-primary-light;
+
+    @include colors.dark {
+        background: colors.$md-sys-color-primary-dark;
+        color: colors.$md-sys-color-on-primary-dark;
+    }
 }
 
-// idk why but vanilla css variables don't work here
-// ::selection {
-//     background: colors.$md-sys-color-primary-light;
-//     color: colors.$md-sys-color-on-primary-light;
-
-//     @include colors.dark {
-//         background: colors.$md-sys-color-primary-dark;
-//         color: colors.$md-sys-color-on-primary-dark;
-//     }
-// }
+.container {
+    max-width: 48rem;
+}

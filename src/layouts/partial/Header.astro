@@ -1,0 +1,27 @@
+---
+import config from "@config";
+---
+
+<header class="w-full py-4 px-6">
+    <nav class="container mx-auto w-full flex justify-between items-center">
+        <div class="font-bold text-2xl">
+            <a href="/" class="title">{config.name}</a>
+        </div>
+        <div class="flex gap-4">
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            <a href="/posts">Posts</a>
+        </div>
+    </nav>
+</header>
+
+<style lang="scss">
+    header {
+        background-color: var(--md-sys-color-surface-container);
+        border-bottom: 0.25rem solid var(--md-sys-color-surface-container-highest);
+    }
+
+    .title {
+        color: var(--md-sys-color-on-surface);
+    }
+</style>

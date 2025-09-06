@@ -317,7 +317,7 @@ $md-sys-color-surface-container-high-dark: rgb(39 42 47);
 $md-sys-color-surface-container-highest-dark: rgb(50 53 58);
 
 @mixin dark {
-  @media screen and (prefers-color-scheme: dark) {
-    @content;
-  }
+    @media screen and (prefers-color-scheme: dark) {
+        @content;
+    }
 }

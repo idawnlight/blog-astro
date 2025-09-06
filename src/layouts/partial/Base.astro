@@ -1,7 +1,7 @@
 ---
 interface Props {
-  title: string;
-  lang: string;
+    title: string;
+    lang: string;
 }
 
 let { title, lang } = Astro.props;
@@ -12,30 +12,21 @@ import "@styles/main.scss";
 
 <!doctype html>
 <html lang={lang}>
-  <head>
-    <meta charset="utf-8" />
-    <title>{title}</title>
-    <meta
-      name="viewport"
-      content="width=device-width,initial-scale=1,user-scalable=1"
-    />
-    <meta name="darkreader-lock" />
-    <meta name="generator" content={Astro.generator} />
-    <link
-      href="/atom.xml"
-      type="application/atom+xml"
-      rel="alternate"
-      title=`${config.name} RSS`
-    />
-    <link rel="icon" type="image/ico" href="/favicon.ico" />
-    <link rel="sitemap" href="/sitemap-index.xml" />
-    <!-- <style>
-      @view-transition {
-        navigation: auto; /* remove this to raise a vscode parse error */
-      }
-    </style> -->
-  </head>
-  <body>
-    <slot />
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <title>{title}</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=1" />
+        <meta name="generator" content={Astro.generator} />
+        <link
+            href={new URL("atom.xml", Astro.site)}
+            type="application/atom+xml"
+            rel="alternate"
+            title=`${config.name} RSS`
+        />
+        <link rel="icon" type="image/ico" href={new URL("favicon.ico", Astro.site)} />
+        <link rel="sitemap" href={new URL("sitemap-index.xml", Astro.site)} />
+    </head>
+    <body>
+        <slot />
+    </body>
 </html>

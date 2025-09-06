@@ -7,6 +7,6 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://idawnlight.com",
-  integrations: [icon(), unocss(), sitemap()]
+    site: "https://idawnlight.com",
+    integrations: [icon(), unocss(), sitemap()]
 });

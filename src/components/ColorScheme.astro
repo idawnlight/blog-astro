@@ -1,45 +1,45 @@
 ---
 // source: https://github.com/OverflowCat/blog/blob/2692867713b7381d66aecf9730b09f7f16433ab8/src/components/Theme.astro
 export type Props = {
-  value: "light" | "dark" | "auto";
+    value: "light" | "dark" | "auto";
 };
 const { value } = Astro.props;
 ---
 
 <div id="theme-switcher" title="切换主题">
-  <select id="theme-select" aria-label="切换主题">
-    <option value="light" selected={value === "light"}>明</option>
-    <option value="dark" selected={value === "dark"}>暗</option>
-    <option value="system" selected={value === "auto"}>系统</option>
-  </select>
+    <select id="theme-select" aria-label="切换主题">
+        <option value="light" selected={value === "light"}>明</option>
+        <option value="dark" selected={value === "dark"}>暗</option>
+        <option value="system" selected={value === "auto"}>系统</option>
+    </select>
 </div>
 
 <style lang="scss" is:global>
-  @supports (color: light-dark(black, white)) {
-    @media (prefers-color-scheme: dark) {
-      :root:has(option[value="system"]:checked) {
-        --dark-scheme: 1;
-      }
-    }
-    @media (prefers-color-scheme: light) {
-      :root:has(option[value="system"]:checked) {
-        --light-scheme: 1;
-      }
-    }
+    @supports (color: light-dark(black, white)) {
+        @media (prefers-color-scheme: dark) {
+            :root:has(option[value="system"]:checked) {
+                --dark-scheme: 1;
+            }
+        }
+        @media (prefers-color-scheme: light) {
+            :root:has(option[value="system"]:checked) {
+                --light-scheme: 1;
+            }
+        }
 
-    :root {
-      &:has(option[value="system"]:checked) {
-        color-scheme: light dark;
-        --auto-scheme: 1;
-      }
-      &:has(option[value="light"]:checked) {
-        color-scheme: light;
-        --light-scheme: 1;
-      }
-      &:has(option[value="dark"]:checked) {
-        color-scheme: dark;
-        --dark-scheme: 1;
-      }
+        :root {
+            &:has(option[value="system"]:checked) {
+                color-scheme: light dark;
+                --auto-scheme: 1;
+            }
+            &:has(option[value="light"]:checked) {
+                color-scheme: light;
+                --light-scheme: 1;
+            }
+            &:has(option[value="dark"]:checked) {
+                color-scheme: dark;
+                --dark-scheme: 1;
+            }
+        }
     }
-  }
 </style>
