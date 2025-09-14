@@ -5,35 +5,53 @@ const currentPath = Astro.url.pathname;
 ---
 
 <header class="w-full py-4">
-    <nav class="container mx-auto w-full flex justify-between items-center">
+    <nav class="container">
         <div class="font-bold text-2xl">
-            <a href="/" class="title">{config.name}</a>
+            <a href="/" class={currentPath === "/" ? "title-index" : "title"}>{config.name}</a>
         </div>
         <div class="flex gap-4 header-links">
-            <a href="/archives" class={currentPath === '/archives' ? 'current' : ''}>归档</a>
-            <a href="/links" class={currentPath === '/links' ? 'current' : ''}>链接</a>
-            <a href="/about" class={currentPath === '/about' ? 'current' : ''}>关于</a>
+            <a href="/archives" class={currentPath === "/archives" ? "current" : ""}>归档</a>
+            <a href="/links" class={currentPath === "/links" ? "current" : ""}>链接</a>
+            <a href="/about" class={currentPath === "/about" ? "current" : ""}>关于</a>
             <a href="/atom.xml" target="_blank" rel="noopener">RSS</a>
         </div>
     </nav>
 </header>
 
 <style lang="scss">
+    @use "@styles/mixins/breakpoint";
+
+    nav {
+        @apply mx-auto w-full flex justify-between items-center;
+
+        @include breakpoint.is-mobile {
+            @apply flex-col items-start gap-2;
+        }
+
+        &:has(.title-index) {
+            @apply gap-0;
+        }
+    }
+
     header {
         background-color: md-color("surface-container", "light");
         border-bottom: 0.25rem solid md-color("surface-container-highest", "light");
-    }
 
-    .title {
-        color: md-color("on-surface", "light");
-    }
+        .title {
+            color: md-color("on-surface", "light");
 
-    .header-links a {
-        @apply text-lg;
+            &-index {
+                display: none;
+            }
+        }
 
-        &.current {
-            font-weight: bold;
-            box-shadow: inset 0 -0.2em 0 0 currentColor;
+        .header-links a {
+            @apply text-lg;
+
+            &.current {
+                font-weight: bold;
+                box-shadow: inset 0 -0.2em 0 0 currentColor;
+            }
         }
     }
 </style>

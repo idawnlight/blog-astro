@@ -9,23 +9,27 @@ let posts = await getBlogPosts();
 ---
 
 <Layout>
-    <!-- <h1>{config.name}</h1>
-    <h2>{config.description}</h2>
-    <div>hello world</div>
-
-    <ul>
-        {
-            posts.map((post) => (
-                <li>
-                    <a href={`/archives/${post.id}`}>{post.data.title}</a>
-                </li>
-            ))
-        }
-    </ul> -->
-
-    <main class="container mx-auto w-full mt-8 flex flex-col gap-6">
-        {posts.map((post) => (
-            <PostEntry post={post} />
-        ))}
+    <main class="container mx-auto w-full mt-8">
+        <h1><img src="/favicon.ico" class="avatar" />{config.name}</h1>
+        <p class="text-xl text-gray-600 dark:text-gray-400 mt-2 mb-8">{config.description}</p>
+        <section class="container mx-auto w-full mt-8 flex flex-col gap-6">
+            {posts.map((post) => <PostEntry post={post} />)}
+        </section>
     </main>
 </Layout>
+
+<style lang="scss">
+    h1 {
+        @apply gap-3 text-4xl font-bold my-0;
+
+        display: inline-flex;
+        align-items: center;
+
+        .avatar {
+            @apply inline-block rounded-full;
+
+            width: 1em;
+            height: 1em;
+        }
+    }
+</style>
