@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "dawn-blog-astro",
+  "name": "blog",
   "compatibility_date": "2025-09-01",
   "assets": {
     "directory": "./dist",

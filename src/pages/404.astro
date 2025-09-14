@@ -1,7 +1,21 @@
 ---
+import EndOfPage from "@/components/EndOfPage.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout>
-    <h1>404</h1>
+<Layout title="404">
+    <main class="container mx-auto w-full mt-8">
+        <h1>404 Not Found</h1>
+        <p>Dear valued reader,</p>
+        <p>You have reached the error page for the error page...<br />You win!!1</p>
+
+        <EndOfPage />
+    </main>
 </Layout>
+
+<style lang="scss">
+    h1 {
+        @apply text-4xl font-bold mb-4;
+        color: md-color("primary", "light");
+    }
+</style>

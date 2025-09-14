@@ -1,18 +1,30 @@
 ---
-import type { CollectionEntry } from "astro:content";
 import FormattedDate from "@/components/FormattedDate.astro";
 
 interface Props {
-    post: CollectionEntry<"blog">;
+    post: {
+        data: {
+            published?: Date;
+            modified?: Date;
+        };
+    };
 }
 
 const { post } = Astro.props;
+
+const showComma = post.data.published && post.data.modified;
 ---
 
 <>
-    发布于 <span><FormattedDate date={post.data.published} /></span>{
+    {
+        post.data.published && (
+            <>发布于 <span><FormattedDate date={post.data.published} /></span></>
+        )
+    }{
+        showComma && (<>，</>)
+    }{
         post.data.modified && (
-            <>，更新于 <span><FormattedDate date={post.data.modified} /></span></>
+            <>更新于 <span><FormattedDate date={post.data.modified} /></span></>
         )
     }
 </>

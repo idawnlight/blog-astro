@@ -1,0 +1,53 @@
+---
+import EndOfPage from "@components/EndOfPage.astro";
+import Layout from "../layouts/Layout.astro";
+
+import { getBlogPosts } from "@/lib/posts";
+
+let posts = await getBlogPosts();
+const years = Array.from(new Set(posts.map(post => post.data.published?.getFullYear()))).sort((a, b) => (b || 0) - (a || 0));
+---
+
+<Layout title="归档">
+    <main class="container mx-auto w-full mt-8">
+        <h1>归档</h1>
+        <p class="my-0">当前共有 {posts.length} 篇文章。</p>
+        {
+            years.map(year => (
+                <>
+                    <h2 class="text-3xl">{year}</h2>
+                        {
+                            posts.filter(post => post.data.published?.getFullYear() === year).map(post => (
+                                <p class="my-0.75">
+                                    <a href={`/archives/${post.id}`}>
+                                        <time class="secondary post-time mr-4">{(post.data.published.getMonth() + 1).toString().padStart(2, '0')}/{post.data.published.getDate().toString().padStart(2, '0')}</time>
+                                        {post.data.title}
+                                    </a>
+                                </p>
+                            ))
+                        }
+                </>
+            ))
+        }
+        <EndOfPage />
+    </main>
+</Layout>
+
+<style lang="scss">
+    .secondary {
+        color: md-color("secondary", "light");
+    }
+
+    .post-time {
+        font-family: $font-family-mono;
+    }
+
+    h1 {
+        @apply text-4xl font-bold mb-4;
+        color: md-color("primary", "light");
+    }
+
+    h2 {
+        color: md-color("secondary", "light");
+    }
+</style>

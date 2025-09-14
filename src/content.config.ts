@@ -11,7 +11,7 @@ const TAG_TYPE = z
     });
 
 const blog = defineCollection({
-    loader: glob({ pattern: ['**/*.md'], base: './src/posts/' }),
+    loader: glob({ pattern: ['[^_pages]*/*.md', '*.md'], base: './src/posts/' }),
     schema: z.object({
         title: z.string(),
         published: z.coerce.date(),
@@ -21,4 +21,13 @@ const blog = defineCollection({
     }),
 });
 
-export const collections = { blog };
+const pages = defineCollection({
+    loader: glob({ pattern: ['**/*.md'], base: './src/posts/_pages/' }),
+    schema: z.object({
+        title: z.string(),
+        description: z.string().optional(),
+        modified: z.coerce.date().optional(),
+    }),
+});
+
+export const collections = { blog, pages };

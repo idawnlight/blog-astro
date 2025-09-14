@@ -2,11 +2,11 @@
 import DateMeta from "@components/DateMeta.astro";
 import EndOfPage from "@components/EndOfPage.astro";
 import Layout from "@layouts/Layout.astro";
-import { getBlogPosts } from "@lib/posts";
+import { getPages } from "@lib/posts";
 import { getEntry, render } from "astro:content";
 
 export async function getStaticPaths() {
-    const posts = (await getBlogPosts()).map((post) => {
+    const posts = (await getPages()).map((post) => {
         const slug = post.id;
         return {
             params: { slug },
@@ -17,7 +17,7 @@ export async function getStaticPaths() {
     return posts;
 }
 
-const post = await getEntry("blog", Astro.props.slug);
+const post = await getEntry("pages", Astro.props.slug);
 if (!post) throw new Error(`Post not found: ${Astro.props.slug}`);
 const content = await render(post);
 ---

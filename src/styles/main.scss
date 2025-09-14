@@ -1,4 +1,7 @@
 @use "colors";
+@use "fluid-type";
+
+@use "sass:map";
 
 :root {
     // color-scheme: light dark;
@@ -11,28 +14,36 @@
 }
 
 html {
-    color: colors.$md-sys-color-on-background-light;
+    color: md-color("on-background", "light");
     @include colors.dark {
-        color: colors.$md-sys-color-on-background-dark;
+        color: md-color("on-background", "dark");
     }
+
+    @include fluid-type.fluid-type(
+        map.get($font-size-min, "vw"),
+        map.get($font-size-max, "vw"),
+        map.get($font-size-min, "fs"),
+        map.get($font-size-max, "fs")
+    );
 }
 
 body {
     margin: 0;
-    background: colors.$md-sys-color-background-light;
+    background: md-color("background", "light");
     position: relative;
+    font-family: $font-family-sans;
 
     @include colors.dark {
-        background: colors.$md-sys-color-background-dark;
+        background: md-color("background", "dark");
     }
 }
 
 a {
-    color: colors.$md-sys-color-primary-light;
+    color: md-color("primary", "light");
     text-decoration: none;
 
     @include colors.dark {
-        color: colors.$md-sys-color-primary-dark;
+        color: md-color("primary", "dark");
     }
 
     &:hover {
@@ -43,18 +54,18 @@ a {
     &:active {
         transition-duration: 0s;
         outline: 0.2em dashed currentColor;
-        outline-offset: 0.05em;
+        // outline-offset: 0.02em;
         box-shadow: none !important;
     }
 }
 
 ::selection {
-    background: colors.$md-sys-color-primary-light;
-    color: colors.$md-sys-color-on-primary-light;
+    background: md-color("primary", "light");
+    color: md-color("on-primary", "light");
 
     @include colors.dark {
-        background: colors.$md-sys-color-primary-dark;
-        color: colors.$md-sys-color-on-primary-dark;
+        background: md-color("primary", "dark");
+        color: md-color("on-primary", "dark");
     }
 }
 

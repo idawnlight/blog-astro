@@ -1,6 +1,5 @@
-// Android Monet color palette
-// https://material-foundation.github.io/material-theme-builder/
-// source image: https://pilotseye.tv/wp-content/gallery/italianfog/pilotseye_italianfog_2560.jpg
+@use 'sass:map';
+@use 'sass:list';
 
 // .light {
 //     --md-sys-color-primary: rgb(52 97 142);
@@ -211,110 +210,6 @@
 //         --md-sys-color-surface-container-highest: light-dark(rgb(225 226 232), rgb(50 53 58));
 //     }
 // }
-
-// --- Light Theme Variables ---
-
-$md-sys-color-primary-light: rgb(52 97 142);
-$md-sys-color-surface-tint-light: rgb(52 97 142);
-$md-sys-color-on-primary-light: rgb(255 255 255);
-$md-sys-color-primary-container-light: rgb(209 228 255);
-$md-sys-color-on-primary-container-light: rgb(23 73 116);
-$md-sys-color-secondary-light: rgb(83 95 112);
-$md-sys-color-on-secondary-light: rgb(255 255 255);
-$md-sys-color-secondary-container-light: rgb(214 228 247);
-$md-sys-color-on-secondary-container-light: rgb(59 72 88);
-$md-sys-color-tertiary-light: rgb(106 87 121);
-$md-sys-color-on-tertiary-light: rgb(255 255 255);
-$md-sys-color-tertiary-container-light: rgb(241 218 255);
-$md-sys-color-on-tertiary-container-light: rgb(82 64 96);
-$md-sys-color-error-light: rgb(186 26 26);
-$md-sys-color-on-error-light: rgb(255 255 255);
-$md-sys-color-error-container-light: rgb(255 218 214);
-$md-sys-color-on-error-container-light: rgb(147 0 10);
-$md-sys-color-background-light: rgb(248 249 255);
-$md-sys-color-on-background-light: rgb(25 28 32);
-$md-sys-color-surface-light: rgb(248 249 255);
-$md-sys-color-on-surface-light: rgb(25 28 32);
-$md-sys-color-surface-variant-light: rgb(223 227 235);
-$md-sys-color-on-surface-variant-light: rgb(66 71 78);
-$md-sys-color-outline-light: rgb(115 119 127);
-$md-sys-color-outline-variant-light: rgb(195 199 207);
-$md-sys-color-shadow-light: rgb(0 0 0);
-$md-sys-color-scrim-light: rgb(0 0 0);
-$md-sys-color-inverse-surface-light: rgb(46 49 53);
-$md-sys-color-inverse-on-surface-light: rgb(239 240 247);
-$md-sys-color-inverse-primary-light: rgb(159 202 252);
-$md-sys-color-primary-fixed-light: rgb(209 228 255);
-$md-sys-color-on-primary-fixed-light: rgb(0 29 53);
-$md-sys-color-primary-fixed-dim-light: rgb(159 202 252);
-$md-sys-color-on-primary-fixed-variant-light: rgb(23 73 116);
-$md-sys-color-secondary-fixed-light: rgb(214 228 247);
-$md-sys-color-on-secondary-fixed-light: rgb(15 28 43);
-$md-sys-color-secondary-fixed-dim-light: rgb(186 200 219);
-$md-sys-color-on-secondary-fixed-variant-light: rgb(59 72 88);
-$md-sys-color-tertiary-fixed-light: rgb(241 218 255);
-$md-sys-color-on-tertiary-fixed-light: rgb(36 20 50);
-$md-sys-color-tertiary-fixed-dim-light: rgb(214 190 229);
-$md-sys-color-on-tertiary-fixed-variant-light: rgb(82 64 96);
-$md-sys-color-surface-dim-light: rgb(216 218 224);
-$md-sys-color-surface-bright-light: rgb(248 249 255);
-$md-sys-color-surface-container-lowest-light: rgb(255 255 255);
-$md-sys-color-surface-container-low-light: rgb(242 243 249);
-$md-sys-color-surface-container-light: rgb(236 238 244);
-$md-sys-color-surface-container-high-light: rgb(230 232 238);
-$md-sys-color-surface-container-highest-light: rgb(225 226 232);
-
-// --- Dark Theme Variables ---
-
-$md-sys-color-primary-dark: rgb(159 202 252);
-$md-sys-color-surface-tint-dark: rgb(159 202 252);
-$md-sys-color-on-primary-dark: rgb(0 50 87);
-$md-sys-color-primary-container-dark: rgb(23 73 116);
-$md-sys-color-on-primary-container-dark: rgb(209 228 255);
-$md-sys-color-secondary-dark: rgb(186 200 219);
-$md-sys-color-on-secondary-dark: rgb(37 49 64);
-$md-sys-color-secondary-container-dark: rgb(59 72 88);
-$md-sys-color-on-secondary-container-dark: rgb(214 228 247);
-$md-sys-color-tertiary-dark: rgb(214 190 229);
-$md-sys-color-on-tertiary-dark: rgb(58 41 72);
-$md-sys-color-tertiary-container-dark: rgb(82 64 96);
-$md-sys-color-on-tertiary-container-dark: rgb(241 218 255);
-$md-sys-color-error-dark: rgb(255 180 171);
-$md-sys-color-on-error-dark: rgb(105 0 5);
-$md-sys-color-error-container-dark: rgb(147 0 10);
-$md-sys-color-on-error-container-dark: rgb(255 218 214);
-$md-sys-color-background-dark: rgb(16 20 24);
-$md-sys-color-on-background-dark: rgb(225 226 232);
-$md-sys-color-surface-dark: rgb(16 20 24);
-$md-sys-color-on-surface-dark: rgb(225 226 232);
-$md-sys-color-surface-variant-dark: rgb(66 71 78);
-$md-sys-color-on-surface-variant-dark: rgb(195 199 207);
-$md-sys-color-outline-dark: rgb(140 145 153);
-$md-sys-color-outline-variant-dark: rgb(66 71 78);
-$md-sys-color-shadow-dark: rgb(0 0 0);
-$md-sys-color-scrim-dark: rgb(0 0 0);
-$md-sys-color-inverse-surface-dark: rgb(225 226 232);
-$md-sys-color-inverse-on-surface-dark: rgb(46 49 53);
-$md-sys-color-inverse-primary-dark: rgb(52 97 142);
-$md-sys-color-primary-fixed-dark: rgb(209 228 255);
-$md-sys-color-on-primary-fixed-dark: rgb(0 29 53);
-$md-sys-color-primary-fixed-dim-dark: rgb(159 202 252);
-$md-sys-color-on-primary-fixed-variant-dark: rgb(23 73 116);
-$md-sys-color-secondary-fixed-dark: rgb(214 228 247);
-$md-sys-color-on-secondary-fixed-dark: rgb(15 28 43);
-$md-sys-color-secondary-fixed-dim-dark: rgb(186 200 219);
-$md-sys-color-on-secondary-fixed-variant-dark: rgb(59 72 88);
-$md-sys-color-tertiary-fixed-dark: rgb(241 218 255);
-$md-sys-color-on-tertiary-fixed-dark: rgb(36 20 50);
-$md-sys-color-tertiary-fixed-dim-dark: rgb(214 190 229);
-$md-sys-color-on-tertiary-fixed-variant-dark: rgb(82 64 96);
-$md-sys-color-surface-dim-dark: rgb(16 20 24);
-$md-sys-color-surface-bright-dark: rgb(54 57 62);
-$md-sys-color-surface-container-lowest-dark: rgb(11 14 19);
-$md-sys-color-surface-container-low-dark: rgb(25 28 32);
-$md-sys-color-surface-container-dark: rgb(29 32 36);
-$md-sys-color-surface-container-high-dark: rgb(39 42 47);
-$md-sys-color-surface-container-highest-dark: rgb(50 53 58);
 
 @mixin dark {
     @media screen and (prefers-color-scheme: dark) {

@@ -1,0 +1,26 @@
+---
+
+---
+
+<div class="post-end"></div>
+
+<style lang="scss">
+    .post-end {
+        @apply my-12;
+
+        position: relative;
+        color: md-color("surface-container-highest", "light");
+        border-bottom: 0.2em dashed md-color("surface-container-high", "light");
+        // @include dark {
+        //     border-bottom-color: $color-border-dark;
+        // }
+        &::after {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: md-color("background", "light");
+            padding: 0.5em;
+            content: "完";
+        }
+    }

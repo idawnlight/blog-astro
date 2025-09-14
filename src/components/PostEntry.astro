@@ -25,15 +25,15 @@ const { post } = Astro.props;
 
 <style lang="scss">
     .post-entry {
-        background-color: var(--md-sys-color-surface-container-lowest);
-        border: 0.2rem solid var(--md-sys-color-surface-container-highest);
+        background-color: md-color("surface-container-lowest", "light");
+        border: 0.2rem solid md-color("surface-container-highest", "light");
         border-radius: 0.1875rem;
-        box-shadow: 0.125rem 0.25rem var(--md-sys-color-surface-container);
+        box-shadow: 0.2rem 0.25rem md-color("surface-container", "light");
 
         @apply p-6;
     }
 
     .entry-meta {
-        color: var(--md-sys-color-secondary);
+        color: md-color("secondary", "light");
     }
 </style>

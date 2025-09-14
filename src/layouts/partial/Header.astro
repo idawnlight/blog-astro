@@ -1,5 +1,7 @@
 ---
 import config from "@config";
+
+const currentPath = Astro.url.pathname;
 ---
 
 <header class="w-full py-4 px-6">
@@ -8,25 +10,30 @@ import config from "@config";
             <a href="/" class="title">{config.name}</a>
         </div>
         <div class="flex gap-4 header-links">
-            <a href="/">归档</a>
-            <a href="/about">链接</a>
-            <a href="/posts">关于</a>
-            <a href="/atom.xml">RSS</a>
+            <a href="/archives" class={currentPath === '/archives' ? 'current' : ''}>归档</a>
+            <a href="/links" class={currentPath === '/links' ? 'current' : ''}>链接</a>
+            <a href="/about" class={currentPath === '/about' ? 'current' : ''}>关于</a>
+            <a href="/atom.xml" target="_blank" rel="noopener">RSS</a>
         </div>
     </nav>
 </header>
 
 <style lang="scss">
     header {
-        background-color: var(--md-sys-color-surface-container);
-        border-bottom: 0.25rem solid var(--md-sys-color-surface-container-highest);
+        background-color: md-color("surface-container", "light");
+        border-bottom: 0.25rem solid md-color("surface-container-highest", "light");
     }
 
     .title {
-        color: var(--md-sys-color-on-surface);
+        color: md-color("on-surface", "light");
     }
 
     .header-links a {
         @apply text-lg;
+
+        &.current {
+            font-weight: bold;
+            box-shadow: inset 0 -0.2em 0 0 currentColor;
+        }
     }
 </style>

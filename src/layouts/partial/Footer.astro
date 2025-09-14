@@ -1,12 +1,26 @@
 ---
 import { Icon } from "astro-icon/components";
+import { buildInfo } from "@lib/build.ts";
 ---
 
-<footer class="w-full">
-    <div class="container mx-auto w-full py-6 px-6 flex flex-col md:flex-row justify-between items-center gap-4">
-        <p class="copyright">Copyleft (ɔ) 2025 黎明余光</p>
-        <p class="theme">
-            {Astro.generator}
-        </p>
+<footer class="w-full my-6">
+    <div class="container mx-auto w-full">
+        <div class="secondary">
+            <p>Copyleft (ɔ) {new Date(buildInfo.time).getFullYear()} 黎明余光</p>
+            <p>自豪地采用 {Astro.generator}，于 {new Date(buildInfo.time).toISOString()} 构建 <a href={`https://github.com/${buildInfo.repo}/commit/${buildInfo.commit}`} target="_blank" rel="noopener">commit/{buildInfo.commit.slice(0, 7)}</a></p>
+        </div>
+        <div>
+            <!-- <Icon name="mdi:heart" class="inline-block align-middle text-red-500" /> -->
+        </div>
     </div>
 </footer>
+
+<style lang="scss">
+    .secondary {
+        color: md-color("secondary", "light");
+    }
+
+    p {
+        margin: 0.125rem 0;
+    }
+</style>
