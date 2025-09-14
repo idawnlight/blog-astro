@@ -22,4 +22,71 @@
     &-meta {
         color: md-color("secondary", "light");
     }
+
+    &-content {
+        blockquote {
+            @apply pl-4 mx-0;
+
+            border-left: 0.25rem solid md-color("primary", "light");
+            color: md-color("on-surface-variant", "light");
+        }
+
+        hr {
+            border: 0;
+            border-top: 2px solid md-color("surface-container-highest", "light");
+            // @include dark {
+            //     border-color: $color-border-dark;
+            // }
+        }
+
+        code {
+            word-break: break-all;
+            letter-spacing: -0.01em;
+            color: md-color("primary", "light");
+            font-size: 0.9em;
+
+            &::before,
+            &::after {
+                content: "`";
+            }
+        }
+
+        .astro-code {
+            background-color: inherit!important;
+            position: relative;
+
+            &::before {
+                content: "";
+                position: absolute;
+                left: 2.5rem;
+                top: 0;
+                bottom: 0;
+                border-left: 2px solid md-color("surface-container", "light");
+            }
+
+            code {
+                color: inherit;
+
+                &::before,
+                &::after {
+                    content: none;
+                }
+
+                counter-reset: step;
+                counter-increment: step 0;
+
+                .line {
+                    &::before {
+                        content: counter(step);
+                        counter-increment: step;
+                        width: 2rem;
+                        margin-right: 1.5rem;
+                        display: inline-block;
+                        text-align: right;
+                        color: md-color("secondary", "light");
+                    }
+                }
+            }
+        }
+    }
 }

@@ -1,5 +1,5 @@
-@use "colors";
 @use "mixins/fluid-type" as *;
+@use "mixins/dark" as *;
 
 @use "sass:map";
 
@@ -15,7 +15,8 @@
 
 html {
     color: md-color("on-background", "light");
-    @include colors.dark {
+    height: 100%;
+    @include dark {
         color: md-color("on-background", "dark");
     }
 
@@ -30,13 +31,18 @@ html {
 }
 
 body {
-    margin: 0;
+    @apply m-0 flex flex-col;
     background: md-color("background", "light");
     position: relative;
+    min-height: 100vh;
     font-family: $font-family-sans;
 
-    @include colors.dark {
+    @include dark {
         background: md-color("background", "dark");
+    }
+
+    & > * {
+        @apply px-6;
     }
 }
 
@@ -44,7 +50,7 @@ a {
     color: md-color("primary", "light");
     text-decoration: none;
 
-    @include colors.dark {
+    @include dark {
         color: md-color("primary", "dark");
     }
 
@@ -65,7 +71,7 @@ a {
     background: md-color("primary", "light");
     color: md-color("on-primary", "light");
 
-    @include colors.dark {
+    @include dark {
         background: md-color("primary", "dark");
         color: md-color("on-primary", "dark");
     }

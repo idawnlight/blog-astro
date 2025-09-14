@@ -16,8 +16,8 @@ lang = lang || "zh-Hans";
 
 <Base title={title} lang={lang}>
     <Header />
-    <div class="px-6">
+    <div class="flex-grow-1">
         <slot />
-        <Footer />
     </div>
+    <Footer />
 </Base>

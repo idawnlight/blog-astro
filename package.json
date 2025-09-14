@@ -13,13 +13,13 @@
         "@astrojs/rss": "^4.0.12",
         "@astrojs/sitemap": "^3.5.1",
         "@iconify-json/fa6-solid": "^1.2.4",
-        "astro": "^5.13.5",
+        "astro": "^5.13.7",
         "astro-icon": "^1.1.5",
         "disqusjs": "^3.1.0",
         "sass": "^1.92.1"
     },
     "devDependencies": {
-        "unocss": "66.5.0",
-        "wrangler": "^4.34.0"
+        "unocss": "66.5.1",
+        "wrangler": "^4.36.0"
     }
 }

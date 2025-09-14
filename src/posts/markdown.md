@@ -111,7 +111,9 @@ and code blocks:
 > 
 > Here's some example code:
 > 
->     return shell_exec("echo $input | $markdown_script");
+> ```php
+> return shell_exec("echo $input | $markdown_script");
+> ```
 
 Any decent text editor should make email-style quoting easy. For
 example, with BBEdit, you can make a selection and choose Increase
@@ -241,9 +243,11 @@ This is a normal paragraph:
 
 Here is an example of AppleScript:
 
-    tell application "Foo"
-        beep
-    end tell
+```applescript
+tell application "Foo"
+    beep
+end tell
+```
 
 A code block continues until it reaches a line that is not indented
 (or the end of the article).
@@ -254,17 +258,35 @@ easy to include example HTML source code using Markdown -- just paste
 it and indent it, and Markdown will handle the hassle of encoding the
 ampersands and angle brackets. For example, this:
 
-    <div class="footer">
-        &copy; 2004 Foo Corporation
-    </div>
+```html
+<div class="footer">
+    &copy; 2004 Foo Corporation
+</div>
+```
 
 Regular Markdown syntax is not processed within code blocks. E.g.,
 asterisks are just literal asterisks within a code block. This means
 it's also easy to use Markdown to write about Markdown's own syntax.
 
-```
+```applescript
 tell application "Foo"
-    beep
+    beep # with very very long comment that goes on and on and on and on and on and on and on and on and on and on and on and on and on and on and on
+end tell
+
+tell application "Foo"
+    beep # with very very long comment that goes on and on and on and on and on and on and on and on and on and on and on and on and on and on and on
+end tell
+
+tell application "Foo"
+    beep # with very very long comment that goes on and on and on and on and on and on and on and on and on and on and on and on and on and on and on
+end tell
+
+tell application "Foo"
+    beep # with very very long comment that goes on and on and on and on and on and on and on and on and on and on and on and on and on and on and on
+end tell
+
+tell application "Foo"
+    beep # with very very long comment that goes on and on and on and on and on and on and on and on and on and on and on and on and on and on and on
 end tell
 ```
 
