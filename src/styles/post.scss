@@ -28,7 +28,7 @@
             @apply pl-4 mx-0;
 
             border-left: 0.25rem solid md-color("primary", "light");
-            color: md-color("on-surface-variant", "light");
+            // color: md-color("on-surface-variant", "light");
         }
 
         hr {
@@ -37,6 +37,32 @@
             // @include dark {
             //     border-color: $color-border-dark;
             // }
+        }
+
+        sup {
+            vertical-align: top;
+            position: relative;
+            top: -0.2em;
+
+            a[data-footnote-ref] {
+                &::before {
+                    content: "[";
+                }
+
+                &::after {
+                    content: "]";
+                }
+            }
+        }
+
+        del {
+            // color: rgba(0, 0, 0, 0.6);
+            opacity: 0.8;
+            transition: opacity 0.2s ease-in-out;
+
+            &:hover {
+                opacity: 1;
+            }
         }
 
         code {

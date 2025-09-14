@@ -22,6 +22,10 @@ export default defineConfig({
         },
     },
     markdown: {
+        remarkRehype: {
+            footnoteLabel: ' ',
+            footnoteLabelTagName: 'hr'
+        },
         shikiConfig: {
             themes: {
                 light: 'github-light',
