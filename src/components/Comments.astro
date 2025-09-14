@@ -6,11 +6,11 @@ interface Props {
 const { slug } = Astro.props;
 
 import 'disqusjs/react/styles/disqusjs.css';
-import DisqusJS from 'disqusjs/es2022';
+import { DisqusJS } from 'disqusjs/react/es2022';
 import config from '@config';
 ---
 
-<DisqusJS
+<DisqusJS client:only="react"
   shortname="dawnlight"
   siteName={config.name}
   identifier={slug}

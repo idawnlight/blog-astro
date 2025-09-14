@@ -4,11 +4,12 @@ import { defineConfig } from 'astro/config';
 import icon from 'astro-icon';
 import unocss from 'unocss/astro'
 import sitemap from '@astrojs/sitemap';
+import react from '@astrojs/react';
 
 // https://astro.build/config
 export default defineConfig({
     site: "https://idawnlight.com",
-    integrations: [icon(), unocss(), sitemap()],
+    integrations: [icon(), unocss(), sitemap(), react()],
     // it behaves differently for dev and build
     // https://github.com/withastro/astro/issues/4252
     trailingSlash: 'never',

@@ -20,6 +20,12 @@ importers:
       '@iconify-json/fa6-solid':
         specifier: ^1.2.4
         version: 1.2.4
+      '@types/react':
+        specifier: ^19.1.13
+        version: 19.1.13
+      '@types/react-dom':
+        specifier: ^19.1.9
+        version: 19.1.9(@types/react@19.1.13)
       astro:
         specifier: ^5.13.7
         version: 5.13.7(@types/node@24.4.0)(jiti@2.5.1)(rollup@4.50.1)(sass@1.92.1)(typescript@5.8.2)
@@ -29,6 +35,12 @@ importers:
       disqusjs:
         specifier: ^3.1.0
         version: 3.1.0(react@19.1.1)
+      react:
+        specifier: ^19.1.1
+        version: 19.1.1
+      react-dom:
+        specifier: ^19.1.1
+        version: 19.1.1(react@19.1.1)
       sass:
         specifier: ^1.92.1
         version: 1.92.1

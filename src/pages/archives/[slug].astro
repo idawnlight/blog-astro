@@ -22,7 +22,10 @@ const post = await getEntry("blog", Astro.props.slug);
 if (!post) throw new Error(`Post not found: ${Astro.props.slug}`);
 const content = await render(post);
 
+const commentsEnabled = post.data.comment ?? true;
+
 import "@styles/post.scss";
+import Comments from "@/components/Comments.astro";
 ---
 
 <Layout title={post.data.title}>
@@ -38,6 +41,9 @@ import "@styles/post.scss";
             <content.Content />
         </main>
         <EndOfPage />
+        {commentsEnabled && (
+            <Comments slug={post.id} />
+        )}
     </article>
 </Layout>
 
