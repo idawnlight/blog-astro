@@ -8,7 +8,7 @@ interface Props {
 
 const { post } = Astro.props;
 
-const bodySlice = (body: string | undefined) => {
+const bodySlice = (body?: string) => {
     if (!body) return "";
     if (body.includes("<!--more-->")) {
         return body.split('<!--more-->')[0];

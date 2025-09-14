@@ -2,9 +2,10 @@
 interface Props {
     title: string;
     lang: string;
+    description?: string;
 }
 
-let { title, lang } = Astro.props;
+let { title, lang, description } = Astro.props;
 
 import config from "@config";
 import "@styles/main.scss";
@@ -17,6 +18,7 @@ import "@styles/main.scss";
         <title>{title}</title>
         <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=1" />
         <meta name="generator" content={Astro.generator} />
+        <meta name="description" content={description || config.description} />
         <link
             href="/atom.xml"
             type="application/atom+xml"

@@ -9,8 +9,6 @@ const { headings } = Astro.props;
 
 type HeadingWithChildren = MarkdownHeading & { children?: HeadingWithChildren[] };
 
-console.log(headings);
-
 const buildTOC = (headings: MarkdownHeading[]): HeadingWithChildren[] => {
     const toc: HeadingWithChildren[] = [];
     const stack: HeadingWithChildren[] = [];

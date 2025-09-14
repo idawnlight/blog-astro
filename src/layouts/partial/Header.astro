@@ -41,7 +41,10 @@ const currentPath = Astro.url.pathname;
             color: md-color("on-surface", "light");
 
             &-index {
-                display: none;
+                visibility: hidden;
+                @include breakpoint.is-mobile {
+                    display: none;
+                }
             }
         }
 
