@@ -33,8 +33,8 @@ importers:
         specifier: ^1.1.5
         version: 1.1.5
       disqusjs:
-        specifier: ^3.1.0
-        version: 3.1.0(react@19.1.1)
+        specifier: ^3.1.1
+        version: 3.1.1(react@19.1.1)
       react:
         specifier: ^19.1.1
         version: 19.1.1
@@ -1513,8 +1513,8 @@ packages:
     engines: {node: '>=0.10'}
     hasBin: true
 
-  detect-libc@2.0.4:
-    resolution: {integrity: sha512-3UDv+G9CsCKO1WKMGw9fwq/SWJYbI0c5Y7LU1AXYoDdbhE2AHQ6N6Nb34sG8Fj7T5APy8qXDCKuuIHd1BR0tVA==}
+  detect-libc@2.1.0:
+    resolution: {integrity: sha512-vEtk+OcP7VBRtQZ1EJ3bdgzSfBjgnEalLTp5zjJrS+2Z1w2KZly4SBdac/WDU3hhsNAZ9E8SC96ME4Ey8MZ7cg==}
     engines: {node: '>=8'}
 
   deterministic-object-hash@2.0.2:
@@ -1534,8 +1534,8 @@ packages:
     resolution: {integrity: sha512-uIFDxqpRZGZ6ThOk84hEfqWoHx2devRFvpTZcTHur85vImfaxUbTW9Ryh4CpCuDnToOP1CEtXKIgytHBPVff5A==}
     engines: {node: '>=0.3.1'}
 
-  disqusjs@3.1.0:
-    resolution: {integrity: sha512-sT1V/CxMdhkgG0Fep+jNCxlqgb8tqthP1JUzYUDGjN7XduG5c7OdUpdgiEW9lFEPQubZDm342duvqU1S1jGgsA==}
+  disqusjs@3.1.1:
+    resolution: {integrity: sha512-fI0hI1oIxzttmWXqDGmZiDtaNHzmT2V6kJpSpxowWiniysoI9Smm1SLBzLM3vOUYvzNXa7yXdDtSCbL0G4wNqg==}
     peerDependencies:
       preact: ^10.7.1
       react: ^16.11.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
@@ -4303,7 +4303,7 @@ snapshots:
   detect-libc@1.0.3:
     optional: true
 
-  detect-libc@2.0.4: {}
+  detect-libc@2.1.0: {}
 
   deterministic-object-hash@2.0.2:
     dependencies:
@@ -4319,7 +4319,7 @@ snapshots:
 
   diff@5.2.0: {}
 
-  disqusjs@3.1.0(react@19.1.1):
+  disqusjs@3.1.1(react@19.1.1):
     dependencies:
       foxact: 0.2.49(react@19.1.1)
       foxts: 3.13.0
@@ -5500,7 +5500,7 @@ snapshots:
   sharp@0.33.5:
     dependencies:
       color: 4.2.3
-      detect-libc: 2.0.4
+      detect-libc: 2.1.0
       semver: 7.7.2
     optionalDependencies:
       '@img/sharp-darwin-arm64': 0.33.5
@@ -5526,7 +5526,7 @@ snapshots:
   sharp@0.34.3:
     dependencies:
       color: 4.2.3
-      detect-libc: 2.0.4
+      detect-libc: 2.1.0
       semver: 7.7.2
     optionalDependencies:
       '@img/sharp-darwin-arm64': 0.34.3
