@@ -6,6 +6,8 @@ import unocss from 'unocss/astro'
 import sitemap from '@astrojs/sitemap';
 import react from '@astrojs/react';
 
+import rehypeExternalLinks from 'rehype-external-links'
+
 // https://astro.build/config
 export default defineConfig({
     site: "https://idawnlight.com",
@@ -27,6 +29,9 @@ export default defineConfig({
             footnoteLabel: ' ',
             footnoteLabelTagName: 'hr'
         },
+        rehypePlugins: [
+            [rehypeExternalLinks, { target: '_blank', rel: ['noopener'] }]
+        ],
         shikiConfig: {
             themes: {
                 light: 'github-light',

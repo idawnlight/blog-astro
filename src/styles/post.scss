@@ -65,6 +65,13 @@
             }
         }
 
+        img {
+            max-width: 100%;
+            height: auto;
+            vertical-align: middle;
+            border: 0;
+        }
+
         code {
             word-break: break-all;
             letter-spacing: -0.01em;
@@ -78,7 +85,7 @@
         }
 
         .astro-code {
-            background-color: inherit!important;
+            background-color: inherit !important;
             position: relative;
 
             &::before {

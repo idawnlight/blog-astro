@@ -1,9 +1,13 @@
 import { getCollection } from "astro:content";
 
-export async function getBlogPosts() {
+export async function getBlogPosts(withHidden = false) {
     const posts = (await getCollection<"blog">("blog")).sort((a, b) => {
         return b.data.published.getTime() - a.data.published.getTime();
     });
+
+    if (!withHidden) {
+        return posts.filter((post) => !post.data.hidden);
+    }
 
     return posts;
 }

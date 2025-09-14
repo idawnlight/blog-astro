@@ -7,6 +7,17 @@ interface Props {
 }
 
 const { post } = Astro.props;
+
+const bodySlice = (body: string | undefined) => {
+    if (!body) return "";
+    if (body.includes("<!--more-->")) {
+        return body.split('<!--more-->')[0];
+    }
+    if (body.includes("<!-- more -->")) {
+        return body.split('<!-- more -->')[0];
+    }
+    return body.slice(0, 200) + (body.length > 200 ? "(...)" : "");
+};
 ---
 
 <section class="post-entry w-full">
@@ -19,7 +30,7 @@ const { post } = Astro.props;
     </div>
 
     <div>
-        {post.data.description ? post.data.description : (post.body && (post.body.slice(0, 200) + (post.body.length > 200 ? "(...)" : "")))}
+        {post.data.description ? post.data.description : bodySlice(post.body)}
     </div>
 </section>
 
