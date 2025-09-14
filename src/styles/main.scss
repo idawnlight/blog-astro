@@ -1,5 +1,5 @@
 @use "colors";
-@use "fluid-type";
+@use "mixins/fluid-type" as *;
 
 @use "sass:map";
 
@@ -19,7 +19,9 @@ html {
         color: md-color("on-background", "dark");
     }
 
-    @include fluid-type.fluid-type(
+    line-height: $line-height-default;
+
+    @include fluid-type(
         map.get($font-size-min, "vw"),
         map.get($font-size-max, "vw"),
         map.get($font-size-min, "fs"),
@@ -47,7 +49,7 @@ a {
     }
 
     &:hover {
-        box-shadow: inset 0 -0.2em 0 0 currentColor;
+        box-shadow: inset 0 -0.1em 0 0 currentColor;
         transition-duration: 0.2s;
     }
 
@@ -70,5 +72,5 @@ a {
 }
 
 .container {
-    max-width: 48rem;
+    max-width: $container-width;
 }

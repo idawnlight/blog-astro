@@ -20,36 +20,17 @@ export async function getStaticPaths() {
 const post = await getEntry("pages", Astro.props.slug);
 if (!post) throw new Error(`Post not found: ${Astro.props.slug}`);
 const content = await render(post);
+
+import "@styles/post.scss";
 ---
 
 <Layout title={post.data.title}>
     <article class="container mx-auto w-full mt-8">
-        <h1 id="article-title">{post.data.title}</h1>
-        <div class="article-meta mb-6">
+        <h1 id="post-title">{post.data.title}</h1>
+        <div class="post-meta mb-6">
             <DateMeta post={post} />
         </div>
         <content.Content />
         <EndOfPage />
     </article>
 </Layout>
-
-<style lang="scss">
-    #article-title {
-        @apply text-4xl font-bold mb-4;
-        color: var(--md-sys-color-primary);
-    }
-
-    .article-meta {
-        color: var(--md-sys-color-secondary);
-    }
-</style>
-
-<script>
-    const articleTitle = document.getElementById("article-title");
-
-    // articleTitle?.addEventListener("click", () => {
-    //     navigator.clipboard.writeText(window.location.href).then(() => {
-    //         alert("已复制链接到剪贴板");
-    //     });
-    // });
-</script>

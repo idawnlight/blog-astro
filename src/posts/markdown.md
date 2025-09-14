@@ -4,7 +4,7 @@ published: 2025-09-14 00:00:00
 description: 这是一个测试 Typography 的 Markdown 文件。
 ---
 
-# Markdown: Syntax
+<!-- # Markdown: Syntax
 
 - [Markdown: Syntax](#markdown-syntax)
   - [Overview](#overview)
@@ -18,8 +18,7 @@ description: 这是一个测试 Typography 的 Markdown 文件。
   - [Span Elements](#span-elements)
     - [Links](#links)
     - [Emphasis](#emphasis)
-    - [Code](#code)
-
+    - [Code](#code) -->
 
 **Note:** This document is itself written using Markdown; you
 can [see the source for it by adding '.text' to the URL](/projects/markdown/syntax.text).

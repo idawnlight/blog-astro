@@ -7,7 +7,7 @@ import { buildInfo } from "@lib/build.ts";
     <div class="container mx-auto w-full">
         <div class="secondary">
             <p>Copyleft (ɔ) {new Date(buildInfo.time).getFullYear()} 黎明余光</p>
-            <p>自豪地采用 {Astro.generator}，于 {new Date(buildInfo.time).toISOString()} 构建 <a href={`https://github.com/${buildInfo.repo}/commit/${buildInfo.commit}`} target="_blank" rel="noopener">commit/{buildInfo.commit.slice(0, 7)}</a></p>
+            <p>自豪地采用 {Astro.generator}，于 <time datetime={new Date(buildInfo.time).toISOString()}>{new Date(buildInfo.time).toISOString()}</time> 构建 <a href={`https://github.com/${buildInfo.repo}/commit/${buildInfo.commit}`} target="_blank" rel="noopener">commit/{buildInfo.commit.slice(0, 7)}</a></p>
         </div>
         <div>
             <!-- <Icon name="mdi:heart" class="inline-block align-middle text-red-500" /> -->

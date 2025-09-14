@@ -1,4 +1,5 @@
 ---
+import TOC from "@/components/TOC.astro";
 import DateMeta from "@components/DateMeta.astro";
 import EndOfPage from "@components/EndOfPage.astro";
 import Layout from "@layouts/Layout.astro";
@@ -20,29 +21,23 @@ export async function getStaticPaths() {
 const post = await getEntry("blog", Astro.props.slug);
 if (!post) throw new Error(`Post not found: ${Astro.props.slug}`);
 const content = await render(post);
+
+import "@styles/post.scss";
 ---
 
 <Layout title={post.data.title}>
     <article class="container mx-auto w-full mt-8">
-        <h1 id="article-title">{post.data.title}</h1>
-        <div class="article-meta mb-6">
+        <h1 class="post-title">{post.data.title}</h1>
+        <div class="post-meta mb-6">
             <DateMeta post={post} />
+        </div>
+        <div class="post-aside pl-4">
+            <TOC headings={content.headings} />
         </div>
         <content.Content />
         <EndOfPage />
     </article>
 </Layout>
-
-<style lang="scss">
-    #article-title {
-        @apply text-4xl font-bold mb-4;
-        color: var(--md-sys-color-primary);
-    }
-
-    .article-meta {
-        color: var(--md-sys-color-secondary);
-    }
-</style>
 
 <script>
     const articleTitle = document.getElementById("article-title");

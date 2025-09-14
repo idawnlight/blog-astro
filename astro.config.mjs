@@ -9,6 +9,9 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
     site: "https://idawnlight.com",
     integrations: [icon(), unocss(), sitemap()],
+    // it behaves differently for dev and build
+    // https://github.com/withastro/astro/issues/4252
+    trailingSlash: 'never',
     vite: {
         css: {
             preprocessorOptions: {

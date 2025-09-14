@@ -1,0 +1,85 @@
+---
+import type { MarkdownHeading } from "astro";
+
+interface Props {
+    headings: MarkdownHeading[];
+}
+
+const { headings } = Astro.props;
+
+type HeadingWithChildren = MarkdownHeading & { children?: HeadingWithChildren[] };
+
+console.log(headings);
+
+const buildTOC = (headings: MarkdownHeading[]): HeadingWithChildren[] => {
+    const toc: HeadingWithChildren[] = [];
+    const stack: HeadingWithChildren[] = [];
+
+    headings.filter(heading => heading.depth > 1).forEach((heading) => {
+        const newItem: HeadingWithChildren = { ...heading, children: [] };
+
+        while (stack.length > 0 && heading.depth <= stack[stack.length - 1].depth) {
+            stack.pop();
+        }
+
+        if (stack.length === 0) {
+            toc.push(newItem);
+            stack.push(newItem);
+        } else {
+            const parent = stack[stack.length - 1];
+            parent.children = parent.children || [];
+            parent.children.push(newItem);
+            stack.push(newItem);
+        }
+    });
+
+    return toc;
+};
+
+const toc = buildTOC(headings);
+---
+
+{headings.length > 1 ? (
+    <section>
+        <header class="font-bold">目录</header>
+        <ol>
+            {toc.map((heading, index) => (
+                <li>
+                    <a href={`#${heading.slug}`}>
+                        <span>{index + 1}. </span>
+                        {heading.text}
+                    </a>
+                    {heading.children && heading.children.length > 0 ? (
+                        <ol>
+                            {heading.children.map((child, childIndex) => (
+                                <li>
+                                    <a href={`#${child.slug}`}>
+                                        <span>{index + 1}.{childIndex + 1}. </span>
+                                        {child.text}
+                                    </a>
+                                </li>
+                            ))}
+                        </ol>
+                    ) : null}
+                </li>
+            ))}
+        </ol>
+    </section>
+) : null}
+
+<style lang="scss">
+    ol {
+        @apply my-0 pl-0;
+        list-style: none;
+
+        & li {
+            & a span {
+                color: md-color("secondary", "light");
+            }
+        }
+
+        & ol {
+            @apply ml-4;
+        }
+    }
+</style>

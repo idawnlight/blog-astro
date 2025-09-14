@@ -1,0 +1,176 @@
+@use 'sass:map';
+@use 'sass:list';
+
+// Android Monet color palette
+// https://material-foundation.github.io/material-theme-builder/
+// source image: https://pilotseye.tv/wp-content/gallery/italianfog/pilotseye_italianfog_2560.jpg
+// --- Light Theme Variables ---
+
+$md-sys-color-primary-light: rgb(52 97 142);
+$md-sys-color-surface-tint-light: rgb(52 97 142);
+$md-sys-color-on-primary-light: rgb(255 255 255);
+$md-sys-color-primary-container-light: rgb(209 228 255);
+$md-sys-color-on-primary-container-light: rgb(23 73 116);
+$md-sys-color-secondary-light: rgb(83 95 112);
+$md-sys-color-on-secondary-light: rgb(255 255 255);
+$md-sys-color-secondary-container-light: rgb(214 228 247);
+$md-sys-color-on-secondary-container-light: rgb(59 72 88);
+$md-sys-color-tertiary-light: rgb(106 87 121);
+$md-sys-color-on-tertiary-light: rgb(255 255 255);
+$md-sys-color-tertiary-container-light: rgb(241 218 255);
+$md-sys-color-on-tertiary-container-light: rgb(82 64 96);
+$md-sys-color-error-light: rgb(186 26 26);
+$md-sys-color-on-error-light: rgb(255 255 255);
+$md-sys-color-error-container-light: rgb(255 218 214);
+$md-sys-color-on-error-container-light: rgb(147 0 10);
+$md-sys-color-background-light: rgb(248 249 255);
+$md-sys-color-on-background-light: rgb(25 28 32);
+$md-sys-color-surface-light: rgb(248 249 255);
+$md-sys-color-on-surface-light: rgb(25 28 32);
+$md-sys-color-surface-variant-light: rgb(223 227 235);
+$md-sys-color-on-surface-variant-light: rgb(66 71 78);
+$md-sys-color-outline-light: rgb(115 119 127);
+$md-sys-color-outline-variant-light: rgb(195 199 207);
+$md-sys-color-shadow-light: rgb(0 0 0);
+$md-sys-color-scrim-light: rgb(0 0 0);
+$md-sys-color-inverse-surface-light: rgb(46 49 53);
+$md-sys-color-inverse-on-surface-light: rgb(239 240 247);
+$md-sys-color-inverse-primary-light: rgb(159 202 252);
+$md-sys-color-primary-fixed-light: rgb(209 228 255);
+$md-sys-color-on-primary-fixed-light: rgb(0 29 53);
+$md-sys-color-primary-fixed-dim-light: rgb(159 202 252);
+$md-sys-color-on-primary-fixed-variant-light: rgb(23 73 116);
+$md-sys-color-secondary-fixed-light: rgb(214 228 247);
+$md-sys-color-on-secondary-fixed-light: rgb(15 28 43);
+$md-sys-color-secondary-fixed-dim-light: rgb(186 200 219);
+$md-sys-color-on-secondary-fixed-variant-light: rgb(59 72 88);
+$md-sys-color-tertiary-fixed-light: rgb(241 218 255);
+$md-sys-color-on-tertiary-fixed-light: rgb(36 20 50);
+$md-sys-color-tertiary-fixed-dim-light: rgb(214 190 229);
+$md-sys-color-on-tertiary-fixed-variant-light: rgb(82 64 96);
+$md-sys-color-surface-dim-light: rgb(216 218 224);
+$md-sys-color-surface-bright-light: rgb(248 249 255);
+$md-sys-color-surface-container-lowest-light: rgb(255 255 255);
+$md-sys-color-surface-container-low-light: rgb(242 243 249);
+$md-sys-color-surface-container-light: rgb(236 238 244);
+$md-sys-color-surface-container-high-light: rgb(230 232 238);
+$md-sys-color-surface-container-highest-light: rgb(225 226 232);
+
+// --- Dark Theme Variables ---
+
+$md-sys-color-primary-dark: rgb(159 202 252);
+$md-sys-color-surface-tint-dark: rgb(159 202 252);
+$md-sys-color-on-primary-dark: rgb(0 50 87);
+$md-sys-color-primary-container-dark: rgb(23 73 116);
+$md-sys-color-on-primary-container-dark: rgb(209 228 255);
+$md-sys-color-secondary-dark: rgb(186 200 219);
+$md-sys-color-on-secondary-dark: rgb(37 49 64);
+$md-sys-color-secondary-container-dark: rgb(59 72 88);
+$md-sys-color-on-secondary-container-dark: rgb(214 228 247);
+$md-sys-color-tertiary-dark: rgb(214 190 229);
+$md-sys-color-on-tertiary-dark: rgb(58 41 72);
+$md-sys-color-tertiary-container-dark: rgb(82 64 96);
+$md-sys-color-on-tertiary-container-dark: rgb(241 218 255);
+$md-sys-color-error-dark: rgb(255 180 171);
+$md-sys-color-on-error-dark: rgb(105 0 5);
+$md-sys-color-error-container-dark: rgb(147 0 10);
+$md-sys-color-on-error-container-dark: rgb(255 218 214);
+$md-sys-color-background-dark: rgb(16 20 24);
+$md-sys-color-on-background-dark: rgb(225 226 232);
+$md-sys-color-surface-dark: rgb(16 20 24);
+$md-sys-color-on-surface-dark: rgb(225 226 232);
+$md-sys-color-surface-variant-dark: rgb(66 71 78);
+$md-sys-color-on-surface-variant-dark: rgb(195 199 207);
+$md-sys-color-outline-dark: rgb(140 145 153);
+$md-sys-color-outline-variant-dark: rgb(66 71 78);
+$md-sys-color-shadow-dark: rgb(0 0 0);
+$md-sys-color-scrim-dark: rgb(0 0 0);
+$md-sys-color-inverse-surface-dark: rgb(225 226 232);
+$md-sys-color-inverse-on-surface-dark: rgb(46 49 53);
+$md-sys-color-inverse-primary-dark: rgb(52 97 142);
+$md-sys-color-primary-fixed-dark: rgb(209 228 255);
+$md-sys-color-on-primary-fixed-dark: rgb(0 29 53);
+$md-sys-color-primary-fixed-dim-dark: rgb(159 202 252);
+$md-sys-color-on-primary-fixed-variant-dark: rgb(23 73 116);
+$md-sys-color-secondary-fixed-dark: rgb(214 228 247);
+$md-sys-color-on-secondary-fixed-dark: rgb(15 28 43);
+$md-sys-color-secondary-fixed-dim-dark: rgb(186 200 219);
+$md-sys-color-on-secondary-fixed-variant-dark: rgb(59 72 88);
+$md-sys-color-tertiary-fixed-dark: rgb(241 218 255);
+$md-sys-color-on-tertiary-fixed-dark: rgb(36 20 50);
+$md-sys-color-tertiary-fixed-dim-dark: rgb(214 190 229);
+$md-sys-color-on-tertiary-fixed-variant-dark: rgb(82 64 96);
+$md-sys-color-surface-dim-dark: rgb(16 20 24);
+$md-sys-color-surface-bright-dark: rgb(54 57 62);
+$md-sys-color-surface-container-lowest-dark: rgb(11 14 19);
+$md-sys-color-surface-container-low-dark: rgb(25 28 32);
+$md-sys-color-surface-container-dark: rgb(29 32 36);
+$md-sys-color-surface-container-high-dark: rgb(39 42 47);
+$md-sys-color-surface-container-highest-dark: rgb(50 53 58);
+
+$md-colors: (
+    primary: ($md-sys-color-primary-light, $md-sys-color-primary-dark),
+    surface-tint: ($md-sys-color-surface-tint-light, $md-sys-color-surface-tint-dark),
+    on-primary: ($md-sys-color-on-primary-light, $md-sys-color-on-primary-dark),
+    primary-container: ($md-sys-color-primary-container-light, $md-sys-color-primary-container-dark),
+    on-primary-container: ($md-sys-color-on-primary-container-light, $md-sys-color-on-primary-container-dark),
+    secondary: ($md-sys-color-secondary-light, $md-sys-color-secondary-dark),
+    on-secondary: ($md-sys-color-on-secondary-light, $md-sys-color-on-secondary-dark),
+    secondary-container: ($md-sys-color-secondary-container-light, $md-sys-color-secondary-container-dark),
+    on-secondary-container: ($md-sys-color-on-secondary-container-light, $md-sys-color-on-secondary-container-dark),
+    tertiary: ($md-sys-color-tertiary-light, $md-sys-color-tertiary-dark),
+    on-tertiary: ($md-sys-color-on-tertiary-light, $md-sys-color-on-tertiary-dark),
+    tertiary-container: ($md-sys-color-tertiary-container-light, $md-sys-color-tertiary-container-dark),
+    on-tertiary-container: ($md-sys-color-on-tertiary-container-light, $md-sys-color-on-tertiary-container-dark),
+    error: ($md-sys-color-error-light, $md-sys-color-error-dark),
+    on-error: ($md-sys-color-on-error-light, $md-sys-color-on-error-dark),
+    error-container: ($md-sys-color-error-container-light, $md-sys-color-error-container-dark),
+    on-error-container: ($md-sys-color-on-error-container-light, $md-sys-color-on-error-container-dark),
+    background: ($md-sys-color-background-light, $md-sys-color-background-dark),
+    on-background: ($md-sys-color-on-background-light, $md-sys-color-on-background-dark),
+    surface: ($md-sys-color-surface-light, $md-sys-color-surface-dark),
+    on-surface: ($md-sys-color-on-surface-light, $md-sys-color-on-surface-dark),
+    surface-variant: ($md-sys-color-surface-variant-light, $md-sys-color-surface-variant-dark),
+    on-surface-variant: ($md-sys-color-on-surface-variant-light, $md-sys-color-on-surface-variant-dark),
+    outline: ($md-sys-color-outline-light, $md-sys-color-outline-dark),
+    outline-variant: ($md-sys-color-outline-variant-light, $md-sys-color-outline-variant-dark),
+    shadow: ($md-sys-color-shadow-light, $md-sys-color-shadow-dark),
+    scrim: ($md-sys-color-scrim-light, $md-sys-color-scrim-dark),
+    inverse-surface: ($md-sys-color-inverse-surface-light, $md-sys-color-inverse-surface-dark),
+    inverse-on-surface: ($md-sys-color-inverse-on-surface-light, $md-sys-color-inverse-on-surface-dark),
+    inverse-primary: ($md-sys-color-inverse-primary-light, $md-sys-color-inverse-primary-dark),
+    primary-fixed: ($md-sys-color-primary-fixed-light, $md-sys-color-primary-fixed-dark),
+    on-primary-fixed: ($md-sys-color-on-primary-fixed-light, $md-sys-color-on-primary-fixed-dark),
+    primary-fixed-dim: ($md-sys-color-primary-fixed-dim-light, $md-sys-color-primary-fixed-dim-dark),
+    on-primary-fixed-variant: ($md-sys-color-on-primary-fixed-variant-light, $md-sys-color-on-primary-fixed-variant-dark),
+    secondary-fixed: ($md-sys-color-secondary-fixed-light, $md-sys-color-secondary-fixed-dark),
+    on-secondary-fixed: ($md-sys-color-on-secondary-fixed-light, $md-sys-color-on-secondary-fixed-dark),
+    secondary-fixed-dim: ($md-sys-color-secondary-fixed-dim-light, $md-sys-color-secondary-fixed-dim-dark),
+    on-secondary-fixed-variant: ($md-sys-color-on-secondary-fixed-variant-light, $md-sys-color-on-secondary-fixed-variant-dark),
+    tertiary-fixed: ($md-sys-color-tertiary-fixed-light, $md-sys-color-tertiary-fixed-dark),
+    on-tertiary-fixed: ($md-sys-color-on-tertiary-fixed-light, $md-sys-color-on-tertiary-fixed-dark),
+    tertiary-fixed-dim: ($md-sys-color-tertiary-fixed-dim-light, $md-sys-color-tertiary-fixed-dim-dark),
+    on-tertiary-fixed-variant: ($md-sys-color-on-tertiary-fixed-variant-light, $md-sys-color-on-tertiary-fixed-variant-dark),
+    surface-dim: ($md-sys-color-surface-dim-light, $md-sys-color-surface-dim-dark),
+    surface-bright: ($md-sys-color-surface-bright-light, $md-sys-color-surface-bright-dark),
+    surface-container-lowest: ($md-sys-color-surface-container-lowest-light, $md-sys-color-surface-container-lowest-dark),
+    surface-container-low: ($md-sys-color-surface-container-low-light, $md-sys-color-surface-container-low-dark),
+    surface-container: ($md-sys-color-surface-container-light, $md-sys-color-surface-container-dark),
+    surface-container-high: ($md-sys-color-surface-container-high-light, $md-sys-color-surface-container-high-dark),
+    surface-container-highest: ($md-sys-color-surface-container-highest-light, $md-sys-color-surface-container-highest-dark)
+);
+
+@function md-color($name, $theme: light) {
+    @if map.has-key($md-colors, $name) {
+        $colors: map.get($md-colors, $name);
+        @if $theme == light {
+            @return list.nth($colors, 1);
+        } @else if $theme == dark {
+            @return list.nth($colors, 2);
+        } @else {
+            @error "Invalid theme `#{$theme}`. Use `light` or `dark`.";
+        }
+    } @else {
+        @error "Color `#{$name}` not found in \$md-colors map.";
+    }
+}
