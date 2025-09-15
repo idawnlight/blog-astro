@@ -4,11 +4,10 @@ import type { CollectionEntry } from 'astro:content';
 interface Props {
     title: string;
     lang: string;
-    description?: string;
     post?: CollectionEntry<'blog'>;
 }
 
-let { title, lang, description, post } = Astro.props;
+let { title, lang, post } = Astro.props;
 
 import config from "@config";
 import "@styles/main.scss";
@@ -70,12 +69,18 @@ const structuredData = (() => {
         <title>{title}</title>
         <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=1" />
         <meta name="generator" content={Astro.generator} />
-        <meta name="description" content={description || config.description} />
+        <meta name="description" content={post?.data.description || config.description} />
         <link
             href="/atom.xml"
             type="application/atom+xml"
             rel="alternate"
-            title=`${config.name} RSS`
+            title=`${config.name} Atom Feed`
+        />
+        <link
+            href="/rss.xml"
+            type="application/rss+xml"
+            rel="alternate"
+            title=`${config.name} RSS Feed`
         />
         <link rel="icon" type="image/ico" href="/favicon.ico" />
         <link rel="sitemap" href="/sitemap-index.xml" />
@@ -84,7 +89,7 @@ const structuredData = (() => {
         <meta property="og:type" content="blog" />
         <meta property="og:url" content={Astro.url} />
         {post?.data.thumbnail && <meta property="og:image" content={post.data.thumbnail} />}
-        <meta property="og:description" content={description || config.description} />
+        <meta property="og:description" content={post?.data.description || config.description} />
         {post?.data.published && <meta property="og:published_time" content={post.data.published.toISOString()} />}
         {post?.data.modified && <meta property="og:modified_time" content={post.data.modified.toISOString()} />}
 

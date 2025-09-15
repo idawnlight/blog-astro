@@ -150,6 +150,7 @@
         .astro-code {
             background-color: inherit !important;
             position: relative;
+            line-height: $line-height-code;
 
             &::before {
                 content: "";
