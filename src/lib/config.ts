@@ -4,12 +4,14 @@ type Without<T, K> = Pick<T, Exclude<keyof T, K>>;
 
 interface Config {
     name: string;
+    author: string;
     description: string;
     disqusJs?: Without<DisqusJSConfig, 'url'>;
 }
 
 export default {
     name: '余光的部落格',
+    author: '黎明余光',
     description: 'For the next infinity.',
     disqusJs: {
         shortname: 'dawnlight',

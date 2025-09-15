@@ -3,7 +3,7 @@ import { generateFeed } from "@lib/feeds";
 
 export async function GET(context: APIContext) {
   const feed = await generateFeed(context);
-  return new Response(feed.atom1(), {
-    headers: { "Content-Type": "application/atom+xml" },
+  return new Response(feed.rss2(), {
+    headers: { "Content-Type": "application/xml" },
   });
 }

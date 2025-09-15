@@ -2,6 +2,7 @@
 title: Markdown Test
 published: 2025-09-14 00:00:00
 description: 这是一个测试 Typography 的 Markdown 文件。
+hidden: true
 ---
 
 <!-- # Markdown: Syntax

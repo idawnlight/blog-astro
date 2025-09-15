@@ -21,6 +21,7 @@ export async function getStaticPaths() {
 const post = await getEntry("blog", Astro.props.slug);
 if (!post) throw new Error(`Post not found: ${Astro.props.slug}`);
 const content = await render(post);
+console.log(content)
 
 const commentsEnabled = post.data.comment ?? true;
 
