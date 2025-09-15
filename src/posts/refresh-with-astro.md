@@ -2,13 +2,11 @@
 title: Refresh with Astro
 published: 2025-09-15
 description: 自豪地采用 Astro，构建并托管于 Cloudflare。
-
-comment: false
 ---
 
 ## Bye Hexo
 
-[2021 年，我从 Typecho 转向 Hexo 构建部落格](/archives/new-blog)，使用我自己微调后的 [giuem/hexo-theme-iris](https://github.com/giuem/hexo-theme-iris) 作为主题。事实上 Hexo 的确能够满足我对一个博客框架的所有功能需求：把 Markdown 渲染成好看的 HTML，并且配合 Iris 主题在这一点上做得很好。当时 Cloudflare Pages 刚刚达到 Generally Available，在控制台上点几下就能与 GitHub 项目集成，非常方便地持续构建每一个 commit，并直接部署到 Cloudflare 的网络上。Everything just works.
+[2021 年，我从 Typecho 转向 Hexo 构建部落格](/archives/new-blog)，使用修改后的 [giuem/hexo-theme-iris](https://github.com/giuem/hexo-theme-iris) 作为主题。事实上 Hexo 的确能够满足我对一个博客框架的所有功能需求：把 Markdown 渲染成好看的 HTML，并且配合 Iris 主题在这一点上做得很好。当时 Cloudflare Pages 刚刚达到 Generally Available，在控制台上点几下就能与 GitHub 项目集成，非常方便地持续构建每一个 commit，并直接部署到 Cloudflare 的网络上。Everything just works.
 
 ![Cloudflare Integration with GitHub](https://i.dawnlab.me/50e06b3884da4c6c3e22dbbcd7c20941.png)
 
@@ -20,15 +18,15 @@ comment: false
 
 [^template-engine]: 近两年还在大规模使用模版引擎的唯一领域，可能就是各种 CTF 题目了。
 
-虽然最近几年更新的内容非常少，但我其实还是有不少想写的，都因为 Hexo 复杂的工作流和缺乏灵活性给劝退了。事已至此，先重构吧（
+虽然最近几年更新的内容非常少，但我其实还是有不少想写的，都因为 Hexo 复杂的工作流和缺乏灵活性给劝退了。事已至此，先重构吧。
 
 ## Hello Astro
 
-如你所见，现在这篇文章是完全使用 Astro 渲染的。也许整个 Layout 有些眼熟，~~对没错我基本是照搬了 Iris，~~ 但是在一些细节上还是有一些区别。实际上这应该不算是我的第一个 Astro 项目，上一个是[东南大学开源镜像站的前端](https://github.com/seu-mirrors/frontend-astro)，所以这次可以比较快地构建起来。
+如你所见，现在这篇文章是完全使用 Astro 渲染的。也许整个 Layout 有些眼熟，~~对没错我基本是照搬了 Iris，~~ 但是在一些细节上还是有一些区别。实际上这应该不算是我的第一个 Astro 项目，上一个是[seu-mirrors/frontend-astro](https://github.com/seu-mirrors/frontend-astro)，所以这次可以比较快地构建起来。
 
 ### 配色
 
-现在配色实际上是基于 [Android Monet](https://siddroid.com/post/android/chasing-monet-inside-the-android-framework/) 算法对 [之前一个博客的 Hero Image (PilotsEYE ITALIANFOG)](https://pilotseye.tv/wp-content/gallery/italianfog/pilotseye_italianfog_2560.jpg) 进行[取色](https://material-foundation.github.io/material-theme-builder/) 得到的。当然在实际使用的时候没怎么遵守语义，属于是看到什么合适就用什么，毕竟我也没打算遵守 Material 设计规范（
+现在配色实际上是基于 [Android Monet](https://siddroid.com/post/android/chasing-monet-inside-the-android-framework/) 算法对 [之前一个博客的 Hero Image (PilotsEYE ITALIANFOG)](https://pilotseye.tv/wp-content/gallery/italianfog/pilotseye_italianfog_2560.jpg) 进行 [取色](https://material-foundation.github.io/material-theme-builder/) 得到的。当然在实际使用的时候没怎么遵守语义，属于是看到什么合适就用什么，毕竟我也没打算遵守 Material 设计规范（
 
 不过即使是随便乱用颜色的情况，也非常惊喜地发现直接切到生成出的 dark 配色毫无问题。配合 Scss 与非常新的 CSS `light-dark()`[^light-dark]，现在博客的自适应颜色主题是这样实现的：
 
