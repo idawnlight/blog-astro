@@ -134,6 +134,30 @@ index ac998cc..9c5135b 100644
 
 另一个计划是试验更多的 Web 新特性，比如上面提到的 `light-dark()`、还没加上的 [View Transition API](https://developer.mozilla.org/en-US/docs/Web/API/View_Transition_API) 等。如果要在原来的 Hexo 上测试，那是真的要命了。
 
+### Cloudflare Workers
+
+Serverless 的定义的确在过去几年发生了极大的变化，似乎唯一的关联就剩下名字了。如今，[Cloudflare Pages 甚至也已经处在一个接近 Deprecated 的状态](https://developers.cloudflare.com/workers/static-assets/migration-guides/migrate-from-pages/)。按照 Cloudflare 的说法：
+
+> [Cloudflare Workers](https://developers.cloudflare.com/workers/static-assets/) now supports nearly all of Pages' features — plus extra tools and integrations not found in Pages.
+> 
+> Check out our [migration guide](https://developers.cloudflare.com/workers/static-assets/migrate-from-pages/) and [compatibility matrix](https://developers.cloudflare.com/workers/static-assets/migrate-from-pages/#compatibility-matrix) to learn how to move to Workers today.
+
+大致就是 Workers 也支持了 Static Assets，一样不会算入计算 Quota，同时还可以支持一些动态的接口。旧项目我是不想迁移了，新的博客尝试了一下，工作流上有一些变化，但总体确实差不多。如果还是作为完全静态的站点，目前只需要加上一个 `wrangler.jsonc`：
+
+```jsonc
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "blog",
+  "compatibility_date": "2025-09-01",
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "404-page"
+  }
+}
+```
+
+之后一样部署就可以了。不过用不了 `pages.dev` 的域名，还是挂在 `[org].workers.dev` 下面。
+
 ## 总结
 
 希望重构完后续能想起来写点啥。如果你还怀念旧版的部落格，可以在 [这里](https://dawn-blog.pages.dev/) 找到它。如果你想看一眼现在这个部落格的源代码，可以点页脚的 commit。
