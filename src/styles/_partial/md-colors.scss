@@ -163,14 +163,13 @@ $md-colors: (
 @function md-color($name, $theme: light) {
     @if map.has-key($md-colors, $name) {
         $colors: map.get($md-colors, $name);
-        @return light-dark(list.nth($colors, 1), list.nth($colors, 2));
-        // @if $theme == light {
-        //     @return list.nth($colors, 1);
-        // } @else if $theme == dark {
-        //     @return list.nth($colors, 2);
-        // } @else {
-        //     @error "Invalid theme `#{$theme}`. Use `light` or `dark`.";
-        // }
+        @if $theme == light {
+            @return list.nth($colors, 1);
+        } @else if $theme == dark {
+            @return list.nth($colors, 2);
+        } @else {
+            @return light-dark(list.nth($colors, 1), list.nth($colors, 2));
+        }
     } @else {
         @error "Color `#{$name}` not found in \$md-colors map.";
     }

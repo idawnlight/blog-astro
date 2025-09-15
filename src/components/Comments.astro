@@ -15,7 +15,7 @@ import config from "@config";
     {
         config.disqusJs && (
             <DisqusJS
-                client:only="react"
+                client:idle
                 siteName={config.name}
                 identifier={slug}
                 url={Astro.url.href}
