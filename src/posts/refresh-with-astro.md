@@ -22,7 +22,7 @@ description: 自豪地采用 Astro，构建并托管于 Cloudflare。
 
 ## Hello Astro
 
-如你所见，现在这篇文章是完全使用 Astro 渲染的。也许整个 Layout 有些眼熟，~~对没错我基本是照搬了 Iris，~~ 但是在一些细节上还是有一些区别。实际上这应该不算是我的第一个 Astro 项目，上一个是[seu-mirrors/frontend-astro](https://github.com/seu-mirrors/frontend-astro)，所以这次可以比较快地构建起来。
+如你所见，现在这篇文章是完全使用 Astro 渲染的。也许整个 Layout 有些眼熟，~~对没错我基本是照搬了 Iris，~~ 但是在一些细节上还是有一些区别。实际上这应该不算是我的第一个 Astro 项目，上一个是 [seu-mirrors/frontend-astro](https://github.com/seu-mirrors/frontend-astro)，所以这次可以比较快地构建起来。
 
 ### 配色
 
@@ -53,7 +53,9 @@ description: 自豪地采用 Astro，构建并托管于 Cloudflare。
 
 ### RSS & Atom
 
-现在右上角的 RSS 他真的指向一个 [RSS Feed](/rss.xml) 了，在这之前实际上它指向的是 [Atom Feed](/atom.xml)，似乎是因为在 Hexo 上我当时只是随便配了一下便没多管。现在这两个 Feed 都是可用的，并且尽量保持了与原先 Hexo 生成的格式保持一致，但愿你的阅读器不会认为过去所有的文章都是新文章（
+现在右上角的 RSS 他真的指向一个 [RSS Feed](/rss.xml) 了，在这之前实际上它指向的是 [Atom Feed](/atom.xml)，似乎是因为在 Hexo 上我当时只是随便配了一下便没多管。现在这两个 Feed 都是可用的，并且尽量保持了与原先 Hexo 生成的格式保持一致，但愿你的阅读器不会认为过去所有的文章都是新文章[^rss-reader]（
+
+[^rss-reader]: 失败了！至少 Miniflux 认为这些都是新文章（
 
 目前在 Astro 上的 Feed 实现是大体上参考了[这篇文章](https://gsong.dev/articles/astro-feed-unified/)，但是对于原始文档的渲染（Markdown、MDX 或是别的什么格式）我不太想另外实现一套与 Astro 内部不同的 unified 生态 remark / rehype 渲染管线[^pipeline]，但是直接调 `astro:content` 的 `render()` 拿到的 `content.Content` 似乎只能作为 Astro Component 使用，那怎么把它变成 HTML 呢？
 
