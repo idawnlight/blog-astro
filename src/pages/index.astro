@@ -11,7 +11,7 @@ let posts = await getBlogPosts();
 <Layout>
     <main class="container mx-auto w-full mt-8">
         <h1><img src="/favicon.ico" class="avatar" alt="Avatar" />{config.name}</h1>
-        <p class="text-xl text-gray-600 dark:text-gray-400 mt-2 mb-8">{config.description}</p>
+        <p class="text-xl mt-2 mb-8">{config.description}</p>
         <section class="container mx-auto w-full mt-8 flex flex-col gap-6">
             {posts.map((post) => <PostEntry post={post} />)}
         </section>
@@ -30,6 +30,10 @@ let posts = await getBlogPosts();
 
             width: 1em;
             height: 1em;
+        }
+
+        & + p {
+            color: md-color("secondary");
         }
     }
 </style>

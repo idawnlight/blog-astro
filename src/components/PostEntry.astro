@@ -7,17 +7,6 @@ interface Props {
 }
 
 const { post } = Astro.props;
-
-const bodySlice = (body?: string) => {
-    if (!body) return "";
-    if (body.includes("<!--more-->")) {
-        return body.split('<!--more-->')[0];
-    }
-    if (body.includes("<!-- more -->")) {
-        return body.split('<!-- more -->')[0];
-    }
-    return body.slice(0, 200) + (body.length > 200 ? "(...)" : "");
-};
 ---
 
 <section class="post-entry w-full">
@@ -30,21 +19,21 @@ const bodySlice = (body?: string) => {
     </div>
 
     <div>
-        {post.data.description ? post.data.description : bodySlice(post.body)}
+        {post.data.description}
     </div>
 </section>
 
 <style lang="scss">
     .post-entry {
-        background-color: md-color("surface-container-lowest", "light");
-        border: 0.2rem solid md-color("surface-container-highest", "light");
+        background-color: md-color("surface-container-lowest");
+        border: 0.2rem solid md-color("surface-container-highest");
         border-radius: 0.1875rem;
-        box-shadow: 0.2rem 0.25rem md-color("surface-container", "light");
+        box-shadow: 0.2rem 0.25rem md-color("surface-container");
 
         @apply p-6;
     }
 
     .entry-meta {
-        color: md-color("secondary", "light");
+        color: md-color("secondary");
     }
 </style>
