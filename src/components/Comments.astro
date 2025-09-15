@@ -1,22 +1,26 @@
 ---
 interface Props {
-	slug: string;
+    slug: string;
 }
 
 const { slug } = Astro.props;
 
-import 'disqusjs/react/styles/disqusjs.css';
-import { DisqusJS } from 'disqusjs/react/es2022';
-import config from '@config';
+// import 'disqusjs/react/styles/disqusjs.css';
+import "@styles/disqusjs.scss";
+import { DisqusJS } from "disqusjs/react/es2022";
+import config from "@config";
 ---
 
-<DisqusJS client:only="react"
-  shortname="dawnlight"
-  siteName={config.name}
-  identifier={slug}
-  url={Astro.url.href}
-  api="https://idawnlight.com/api/"
-  apikey="qMzZgFvrD6nma2S9G8xjOT7OmyBNOMsv4ZC9CetPmqbq94zn8W66Zpwg7PAuJbmt"
-  admin="黎明余光"
-  adminLabel="Admin"
-/>
+<>
+    {
+        config.disqusJs && (
+            <DisqusJS
+                client:only="react"
+                siteName={config.name}
+                identifier={slug}
+                url={Astro.url.href}
+                {...config.disqusJs}
+            />
+        )
+    }
+</>
