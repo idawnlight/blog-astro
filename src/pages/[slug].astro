@@ -36,3 +36,11 @@ import "@styles/post.scss";
         <EndOfPage />
     </article>
 </Layout>
+
+<script>
+    import mediumZoom from 'medium-zoom'
+
+    mediumZoom('.post-content img:not(.medium-zoom-image)', {
+        margin: 16
+    });
+</script>

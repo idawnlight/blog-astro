@@ -49,11 +49,9 @@ import Comments from "@/components/Comments.astro";
 </Layout>
 
 <script>
-    const articleTitle = document.getElementById("article-title");
+    import mediumZoom from 'medium-zoom'
 
-    // articleTitle?.addEventListener("click", () => {
-    //     navigator.clipboard.writeText(window.location.href).then(() => {
-    //         alert("已复制链接到剪贴板");
-    //     });
-    // });
+    mediumZoom('.post-content img:not(.medium-zoom-image)', {
+        margin: 16
+    });
 </script>

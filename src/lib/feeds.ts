@@ -45,7 +45,7 @@ async function addArticlesToFeed(
     const articles = await getBlogPosts();
 
     for (const article of articles) {
-        const link = createUrl(`/archives/${article.id}`, site) as string;
+        const link = createUrl(`/archives/${article.id}/`, site) as string;
         const content = await render(article);
         const container = await experimental_AstroContainer.create();
         const htmlContent = await container.renderToString(content.Content);

@@ -34,7 +34,7 @@ body {
     min-height: 100vh;
     font-family: $font-family-sans;
 
-    & > * {
+    & > *:not(.medium-zoom-image) {
         @apply px-6;
     }
 }
