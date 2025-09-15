@@ -1,16 +1,66 @@
 ---
+import type { CollectionEntry } from 'astro:content';
+
 interface Props {
     title: string;
     lang: string;
     description?: string;
+    post?: CollectionEntry<'blog'>;
 }
 
-let { title, lang, description } = Astro.props;
+let { title, lang, description, post } = Astro.props;
 
 import config from "@config";
 import "@styles/main.scss";
 
 import '@fontsource-variable/ibm-plex-sans';
+
+const structuredData = (() => {
+    if (Astro.url.pathname === '/') {
+        return {
+            "@context": "https://schema.org",
+            "@type": "Blog",
+            "url": Astro.site,
+            "name": config.name,
+            "description": config.description,
+            "author": {
+                "@type": "Person",
+                "name": config.author,
+                "description": config.description
+            },
+            "publisher": {
+                "@type": "Organization",
+                "name": config.name
+            },
+        };
+    }
+
+    if (post) {
+        return {
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": Astro.url.href
+            },
+            "headline": post.data.title,
+            "description": post.data.description || config.description,
+            "image": post.data.thumbnail || undefined,
+            "author": {
+                "@type": "Person",
+                "name": config.author
+            },
+            "publisher": {
+                "@type": "Organization",
+                "name": config.name
+            },
+            "datePublished": post.data.published ? post.data.published.toISOString() : undefined,
+            "dateModified": post.data.modified ? post.data.modified.toISOString() : undefined,
+        };
+    }
+
+    return undefined;
+})();
 ---
 
 <!doctype html>
@@ -29,6 +79,18 @@ import '@fontsource-variable/ibm-plex-sans';
         />
         <link rel="icon" type="image/ico" href="/favicon.ico" />
         <link rel="sitemap" href="/sitemap-index.xml" />
+
+        <meta property="og:title" content={title} />
+        <meta property="og:type" content="blog" />
+        <meta property="og:url" content={Astro.url} />
+        {post?.data.thumbnail && <meta property="og:image" content={post.data.thumbnail} />}
+        <meta property="og:description" content={description || config.description} />
+        {post?.data.published && <meta property="og:published_time" content={post.data.published.toISOString()} />}
+        {post?.data.modified && <meta property="og:modified_time" content={post.data.modified.toISOString()} />}
+
+        <meta name="twitter:card" content={post?.data.thumbnail ? "summary_large_image" : "summary"} />
+
+        {structuredData && <script type="application/ld+json" set:html={JSON.stringify(structuredData)}></script>}
     </head>
     <body>
         <slot />

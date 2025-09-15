@@ -7,14 +7,15 @@ import config from "@config";
 interface Props {
     title?: string;
     lang?: string;
+    post?: import('astro:content').CollectionEntry<'blog'>;
 }
 
-let { title, lang } = Astro.props;
+let { title, lang, post } = Astro.props;
 title = title ? `${title} | ${config.name}` : config.name;
 lang = lang || "zh-Hans";
 ---
 
-<Base title={title} lang={lang}>
+<Base title={title} lang={lang} post={post}>
     <Header />
     <div class="flex-grow-1">
         <slot />

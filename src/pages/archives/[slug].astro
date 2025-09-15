@@ -3,7 +3,7 @@ import TOC from "@/components/TOC.astro";
 import DateMeta from "@components/DateMeta.astro";
 import EndOfPage from "@components/EndOfPage.astro";
 import Layout from "@layouts/Layout.astro";
-import { getBlogPosts } from "@lib/posts";
+import { getBlogPostById, getBlogPosts } from "@lib/posts";
 import { getEntry, render } from "astro:content";
 
 export async function getStaticPaths() {
@@ -18,7 +18,7 @@ export async function getStaticPaths() {
     return posts;
 }
 
-const post = await getEntry("blog", Astro.props.slug);
+const post = await getBlogPostById(Astro.props.slug);
 if (!post) throw new Error(`Post not found: ${Astro.props.slug}`);
 const content = await render(post);
 
@@ -28,7 +28,7 @@ import "@styles/post.scss";
 import Comments from "@/components/Comments.astro";
 ---
 
-<Layout title={post.data.title}>
+<Layout title={post.data.title} post={post}>
     <article class="container mx-auto w-full mt-8">
         <h1 class="post-title">{post.data.title}</h1>
         <section class="post-meta mb-6">
