@@ -160,7 +160,7 @@ $md-colors: (
     surface-container-highest: ($md-sys-color-surface-container-highest-light, $md-sys-color-surface-container-highest-dark)
 );
 
-@function md-color($name, $theme: light) {
+@function md-color($name, $theme: both) {
     @if map.has-key($md-colors, $name) {
         $colors: map.get($md-colors, $name);
         @if $theme == light {

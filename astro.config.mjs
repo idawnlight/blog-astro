@@ -7,6 +7,8 @@ import sitemap from '@astrojs/sitemap';
 import react from '@astrojs/react';
 
 import rehypeExternalLinks from 'rehype-external-links'
+import rehypeSlug from 'rehype-slug'
+import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 
 // https://astro.build/config
 export default defineConfig({
@@ -30,7 +32,9 @@ export default defineConfig({
             footnoteLabelTagName: 'hr'
         },
         rehypePlugins: [
-            [rehypeExternalLinks, { target: '_blank', rel: ['noopener'] }]
+            [rehypeExternalLinks, { target: '_blank', rel: ['noopener'] }],
+            rehypeSlug,
+            [rehypeAutolinkHeadings, { behavior: 'append', content: { type: 'text', value: '' }, properties: { className: ['header-anchor'] } }]
         ],
         shikiConfig: {
             themes: {

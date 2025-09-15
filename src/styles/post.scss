@@ -16,6 +16,8 @@
             margin-left: -100%;
             position: sticky;
             top: 1em;
+            max-height: calc(100vh - 2em);
+            overflow-y: auto;
 
             font-size: 0.8em;
         }
@@ -26,6 +28,34 @@
     }
 
     &-content {
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            .header-anchor {
+                opacity: 0;
+                margin-left: 0.5em;
+                font-weight: normal;
+                text-decoration: none;
+                color: md-color("on-surface-variant");
+                transition: opacity 0.2s ease-in-out;
+
+                &::before {
+                    content: "#";
+                }
+
+                &:hover {
+                    color: md-color("primary");
+                }
+            }
+
+            &:hover .header-anchor {
+                opacity: 1;
+            }
+        }
+
         blockquote {
             @apply pl-4 mx-0;
 
@@ -72,6 +102,27 @@
             height: auto;
             vertical-align: middle;
             border: 0;
+        }
+
+        table {
+            width: 100%;
+            table-layout: fixed;
+            border-collapse: collapse;
+            border-spacing: 0;
+
+            tr {
+                border-top: 1px solid md-color("surface-container-highest");
+                // &:nth-child(2n) {
+                //   background: #f9f9f9;
+                // }
+            }
+
+            th,
+            td {
+                text-align: left;
+                border: 1px solid md-color("surface-container-highest");
+                padding: 0.3em 0.6em;
+            }
         }
 
         code {
