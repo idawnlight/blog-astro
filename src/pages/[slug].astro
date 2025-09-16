@@ -26,10 +26,10 @@ import "@styles/post.scss";
 
 <Layout title={post.data.title}>
     <article class="container mx-auto w-full mt-8">
-        <h1 id="post-title">{post.data.title}</h1>
-        <div class="post-meta mb-6">
+        <h1 class="post-title">{post.data.title}</h1>
+        <section class="post-meta mb-6">
             <DateMeta post={post} />
-        </div>
+        </section>
         <main class="post-content">
             <content.Content />
         </main>
