@@ -1,5 +1,7 @@
+minimumReleaseAge: 1440
+
 onlyBuiltDependencies:
+  - '@parcel/watcher'
   - esbuild
   - sharp
   - workerd
-minimumReleaseAge: 1440
