@@ -28,6 +28,8 @@
     }
 
     &-content {
+        // text-align: justify;
+
         h1,
         h2,
         h3,
@@ -102,6 +104,16 @@
             height: auto;
             vertical-align: middle;
             border: 0;
+        }
+
+        ul,
+        ol {
+            padding-inline-start: 2em;
+
+            & ul,
+            & ol {
+                padding-inline-start: 1em;
+            }
         }
 
         table {

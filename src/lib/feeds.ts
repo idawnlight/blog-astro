@@ -48,7 +48,12 @@ async function addArticlesToFeed(
         const link = createUrl(`/archives/${article.id}/`, site) as string;
         const content = await render(article);
         const container = await experimental_AstroContainer.create();
-        const htmlContent = await container.renderToString(content.Content);
+        let htmlContent = "";
+        try {
+            htmlContent = await container.renderToString(content.Content);
+        } catch (e) {
+            console.error(`Error rendering article "${article.data.title}" (ID: ${article.id}):`, e);
+        }
 
         feed.addItem({
             title: article.data.title,

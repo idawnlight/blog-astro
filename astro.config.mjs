@@ -10,10 +10,12 @@ import rehypeExternalLinks from 'rehype-external-links'
 import rehypeSlug from 'rehype-slug'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 
+import mdx from '@astrojs/mdx';
+
 // https://astro.build/config
 export default defineConfig({
     site: "https://idawnlight.com",
-    integrations: [icon(), unocss(), sitemap(), react()],
+    integrations: [icon(), unocss(), sitemap(), react(), mdx()],
     // it behaves differently for dev and build
     // https://github.com/withastro/astro/issues/4252
     trailingSlash: 'never',
@@ -21,7 +23,7 @@ export default defineConfig({
         css: {
             preprocessorOptions: {
                 scss: {
-                    additionalData: `@use "@styles/_global.scss" as *;`
+                    additionalData: `@use "@styles/_global.scss" as *;\n`
                 },
             },
         },
