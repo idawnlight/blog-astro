@@ -10,12 +10,12 @@
     },
     "dependencies": {
         "@astrojs/react": "^4.3.1",
-        "@astrojs/sitemap": "^3.5.1",
-        "@fontsource-variable/ibm-plex-sans": "^5.2.7",
+        "@astrojs/sitemap": "^3.6.0",
+        "@fontsource-variable/ibm-plex-sans": "^5.2.8",
         "@iconify-json/fa6-solid": "^1.2.4",
         "@types/react": "^19.1.13",
         "@types/react-dom": "^19.1.9",
-        "astro": "^5.13.7",
+        "astro": "^5.13.8",
         "astro-icon": "^1.1.5",
         "disqusjs": "^3.1.1",
         "feed": "^5.1.0",
@@ -29,6 +29,6 @@
     },
     "devDependencies": {
         "unocss": "66.5.1",
-        "wrangler": "^4.36.0"
+        "wrangler": "^4.37.1"
     }
 }
