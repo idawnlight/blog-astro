@@ -35,7 +35,8 @@ const createUrl = (path: string, site: string) => {
     return new URL(path, site).toString();
 }
 
-import { experimental_AstroContainer } from "astro/container";
+import { experimental_AstroContainer as AstroContainer } from "astro/container";
+import mdxRenderer from "@astrojs/mdx/server.js";
 
 async function addArticlesToFeed(
     feed: Feed,
@@ -43,16 +44,19 @@ async function addArticlesToFeed(
     author: Author,
 ): Promise<void> {
     const articles = await getBlogPosts();
+    const container = await AstroContainer.create();
+    container.addServerRenderer({renderer: mdxRenderer});
 
     for (const article of articles) {
         const link = createUrl(`/archives/${article.id}/`, site) as string;
         const content = await render(article);
-        const container = await experimental_AstroContainer.create();
         let htmlContent = "";
         try {
             htmlContent = await container.renderToString(content.Content);
         } catch (e) {
             console.error(`Error rendering article "${article.data.title}" (ID: ${article.id}):`, e);
+            // still throw the error to abort the build
+            throw e;
         }
 
         feed.addItem({

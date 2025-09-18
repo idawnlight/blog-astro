@@ -65,17 +65,20 @@ description: 自豪地采用 Astro，构建并托管于 Cloudflare。
 
 ```typescript
 import { render } from "astro:content";
-import { experimental_AstroContainer } from "astro/container";
+import { experimental_AstroContainer as AstroContainer } from "astro/container";
+// For mdx support
+import mdxRenderer from "@astrojs/mdx/server.js";
 
 async function addArticlesToFeed(
     // ...
 ): Promise<void> {
     const articles = await getBlogPosts();
+    const container = await AstroContainer.create();
+    container.addServerRenderer({renderer: mdxRenderer});
 
     for (const article of articles) {
         // ...
         const content = await render(article);
-        const container = await experimental_AstroContainer.create();
         const htmlContent = await container.renderToString(content.Content);
 
         feed.addItem({
