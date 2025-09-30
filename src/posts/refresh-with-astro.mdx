@@ -1,7 +1,7 @@
 ---
 title: Refresh with Astro
 published: 2025-09-15
-modified: 2025-09-18
+modified: 2025-09-30
 description: 自豪地采用 Astro，构建并托管于 Cloudflare。
 ---
 
@@ -90,6 +90,8 @@ async function addArticlesToFeed(
 ```
 
 [^pipeline]: 写成「渲染管线」总感觉我好像在做计算机图形学或是游戏开发。
+
+其中，如果需要加入 `mdx` 或是其他组件的支持，需要额外设定 `container.addServerRenderer({renderer: ...});`。这个方法的类型定义在 Astro v5.13.10 之前不能被满足，给 Astro 提了 [pr #14398](https://github.com/withastro/astro/pull/14398) 修复了这个问题。
 
 ### SukkaW/DisqusJS
 
