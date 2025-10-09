@@ -62,6 +62,9 @@ importers:
       sass:
         specifier: ^1.93.2
         version: 1.93.2
+      sharp:
+        specifier: ^0.34.4
+        version: 0.34.4
     devDependencies:
       unocss:
         specifier: 66.5.2
@@ -3562,8 +3565,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@img/colour@1.0.0':
-    optional: true
+  '@img/colour@1.0.0': {}
 
   '@img/sharp-darwin-arm64@0.33.5':
     optionalDependencies:
@@ -6158,7 +6160,6 @@ snapshots:
       '@img/sharp-win32-arm64': 0.34.4
       '@img/sharp-win32-ia32': 0.34.4
       '@img/sharp-win32-x64': 0.34.4
-    optional: true
 
   shiki@3.13.0:
     dependencies:
