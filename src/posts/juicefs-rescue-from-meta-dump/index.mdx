@@ -132,7 +132,7 @@ func (m prefixMapper) Table2Obj(name string) string {
 
 JuiceFS 的文档将 `Chunk - Slice - Block` 三级结构讲得极端复杂，实际上并无必要。简单扩展一下 [来自文档的图](https://juicefs.com/docs/zh/community/architecture)，一种比较简单的可能情况是：
 
-![JuiceFS 读写请求处理流程图](juicefs.svg)
+![JuiceFS 三级存储](juicefs.svg)
 
 我们可以有一个直观的感觉：
 
