@@ -13,13 +13,13 @@ modified: 2025-09-15
 - [Molly's Blog](https://momosan.cc/)
 - [PRIN BLOG](https://prinsss.github.io/)
 - [惶心博客](https://huangxin.dev/)
-- [深海小涛](https://xtaolink.cn/)
+- [深海小涛](https://blog.xtao.de/)
 - [犬's Blog](https://moedog.org/)
-- [O's Blog](https://ohmyga.cn/)
+- [O's Blog](https://ohmyga.dev/)
 - [Starx](https://www.starx.ink/)
 - [黯梦萦辰](https://blog.tinyume.com/)
 - [ZigZagK](https://zigzagk.top/)
-- [L の world.](https://lllgoyour.com/)
+- [東雲](https://lllgoyour.com/)
 - [UNKNOWN date](https://unstartdev.eu.org/)
 
 Not reachable:
