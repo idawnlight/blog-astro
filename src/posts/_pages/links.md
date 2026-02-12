@@ -19,7 +19,7 @@ modified: 2025-09-15
 - [Starx](https://www.starx.ink/)
 - [黯梦萦辰](https://blog.tinyume.com/)
 - [ZigZagK](https://zigzagk.top/)
-- [東雲](https://lllgoyour.com/)
+- [LLLgoyour](https://lllgoyour.com/)
 - [UNKNOWN date](https://unstartdev.eu.org/)
 
 Not reachable:
